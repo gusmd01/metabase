@@ -4,7 +4,7 @@
 
 FROM node:18-bullseye as builder
 
-ARG MB_EDITION=oss
+ARG MB_EDITION=ee
 ARG VERSION
 
 WORKDIR /home/node
