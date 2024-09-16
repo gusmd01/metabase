@@ -10,7 +10,9 @@ export const CollectionMain = styled.div`
   margin: 0 auto;
   overflow-y: auto;
   max-height: 100%;
-  padding: 1rem 5%;
+  height: 100%;
+  padding: 0 15px;
+  background: #fff;
 `;
 
 export interface CollectionTableProps {

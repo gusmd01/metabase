@@ -13,7 +13,7 @@ import type {
 } from "./types";
 
 export const CheckBoxRoot = styled.label`
-  display: block;
+  display: flex;
   position: relative;
 `;
 
@@ -63,9 +63,9 @@ export const CheckBoxIconContainer = styled.span<CheckBoxIconContainerProps>`
   min-width: ${props => `${props.size}px`};
   width: ${props => `${props.size}px`};
   height: ${props => `${props.size}px`};
-  border: 0.125rem solid
+  border: 1px solid
     ${props => color(props.checked ? props.checkedColor : props.uncheckedColor)};
-  border-radius: 0.25rem;
+  border-radius: 0.15rem;
   background-color: ${props =>
     props.checked ? color(props.checkedColor) : "var(--mb-color-bg-white)"};
 `;

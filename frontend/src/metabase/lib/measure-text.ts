@@ -31,7 +31,7 @@ export const measureText: TextMeasurer = (text: string, style: FontStyle) => {
 
 const styleDefaults = {
   size: "14px",
-  family: "sans-serif",
+  family: "Poppins",
   weight: "normal",
 };
 

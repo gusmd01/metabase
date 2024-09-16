@@ -35,6 +35,28 @@ export const Table = styled.table<{ isInDragLayer?: boolean }>`
         border-start-end-radius: 8px;
         border-inline-end: 1px solid var(--mb-color-border);
       }
+
+      font-weight: 500;
+      color: #161616;
+    }
+  }
+
+  tbody {
+    td {
+      font-size: 12px;
+      color: #161616;
+
+      button {
+        svg {
+          color: #777986;
+        }
+      }
+
+      a {
+        h3 {
+          font-weight: 400;
+        }
+      }
     }
   }
 
@@ -79,8 +101,8 @@ export const TableColumn = styled.col<ResponsiveProps>`
 `;
 
 export const EntityIconCheckBox = styled(EntityItem.IconCheckBox)`
-  width: 3em;
-  height: 3em;
+  width: 46px;
+  height: 40px;
 `;
 
 const itemLinkStyle = css`

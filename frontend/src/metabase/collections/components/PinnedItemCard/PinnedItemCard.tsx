@@ -1,6 +1,5 @@
 import type { Dispatch, MouseEvent, SetStateAction } from "react";
 import { useState } from "react";
-import { t } from "ttag";
 
 import ActionMenu from "metabase/collections/components/ActionMenu";
 import type {
@@ -24,11 +23,11 @@ import type {
 import {
   ActionsContainer,
   Body,
-  Description,
   Header,
   ItemCard,
   ItemIcon,
   ItemLink,
+  OuterContent,
   Title,
 } from "./PinnedItemCard.styled";
 
@@ -59,12 +58,12 @@ type Props = {
 
 const TOOLTIP_MAX_WIDTH = 450;
 
-const DEFAULT_DESCRIPTION: Record<string, string> = {
-  card: t`A question`,
-  metric: t`A metric`,
-  dashboard: t`A dashboard`,
-  dataset: t`A model`,
-};
+// const DEFAULT_DESCRIPTION: Record<string, string> = {
+//   card: t`A question`,
+//   metric: t`A metric`,
+//   dashboard: t`A dashboard`,
+//   dataset: t`A model`,
+// };
 
 const isCollectionItem = (
   item: CollectionItem | RecentCollectionItem,
@@ -118,7 +117,30 @@ function PinnedItemCard({
       <ItemCard flat>
         <Body>
           <Header>
-            <ItemIcon name={icon as unknown as IconName} />
+            <OuterContent>
+              <ItemIcon name={icon as unknown as IconName} />
+              {item && (
+                <>
+                  <Tooltip
+                    tooltip={item.name}
+                    placement="bottom"
+                    maxWidth={TOOLTIP_MAX_WIDTH}
+                    isEnabled={showTitleTooltip}
+                  >
+                    <Title
+                      onMouseEnter={e =>
+                        maybeEnableTooltip(e, setShowTitleTooltip)
+                      }
+                    >
+                      {item.name}
+                    </Title>
+                  </Tooltip>
+                  {/* <Description tooltipMaxWidth={TOOLTIP_MAX_WIDTH}>
+                      {item.description || DEFAULT_DESCRIPTION[item.model] || ""}
+                    </Description> */}
+                </>
+              )}
+            </OuterContent>
             <ActionsContainer h={item ? undefined : "2rem"}>
               {item?.model === "dataset" && <ModelDetailLink model={item} />}
               {hasActions && (
@@ -139,25 +161,7 @@ function PinnedItemCard({
               )}
             </ActionsContainer>
           </Header>
-          {item ? (
-            <>
-              <Tooltip
-                tooltip={item.name}
-                placement="bottom"
-                maxWidth={TOOLTIP_MAX_WIDTH}
-                isEnabled={showTitleTooltip}
-              >
-                <Title
-                  onMouseEnter={e => maybeEnableTooltip(e, setShowTitleTooltip)}
-                >
-                  {item.name}
-                </Title>
-              </Tooltip>
-              <Description tooltipMaxWidth={TOOLTIP_MAX_WIDTH}>
-                {item.description || DEFAULT_DESCRIPTION[item.model] || ""}
-              </Description>
-            </>
-          ) : (
+          {!item && (
             <>
               <Skeleton natural h="1.5rem" />
               <Skeleton natural mt="xs" mb="4px" h="1rem" />
