@@ -6,7 +6,11 @@ import Card from "metabase/components/Card";
 import { MarkdownPreview } from "metabase/core/components/MarkdownPreview";
 import { Box, type BoxProps, Icon } from "metabase/ui";
 
-export const ItemCard = styled(Card)``;
+export const ItemCard = styled(Card)`
+  border-radius: 10px;
+  border: none;
+  box-shadow: 3px 8px 34px #dfdfdfc2;
+`;
 
 export const ItemLink = styled(RawMaybeLink)<{ to?: string }>`
   display: block;
@@ -22,27 +26,34 @@ export const ItemLink = styled(RawMaybeLink)<{ to?: string }>`
 `;
 
 export const ItemIcon = styled(Icon)`
-  color: var(--mb-color-brand);
-  height: 1.5rem;
-  width: 1.5rem;
+  color: #777986;
+  height: 1.1rem;
+  width: 1.1rem;
 `;
 
 export const ActionsContainer = styled(Box)<BoxProps>`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0;
   visibility: hidden;
 `;
 
 export const Title = styled.div`
-  font-weight: bold;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 1.5rem;
-  color: var(--mb-color-text-dark);
+  color: #5b5d6b;
   transition: color 0.2s ease;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+`;
+
+export const OuterContent = styled.div`
+  flex-direction: row;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 `;
 
 export const Description = styled(MarkdownPreview)`
@@ -50,16 +61,12 @@ export const Description = styled(MarkdownPreview)`
 `;
 
 export const Body = styled.div`
-  padding: 1rem 1.5rem;
+  padding: 8px 12px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 
   &:hover {
-    ${Title} {
-      color: var(--mb-color-brand);
-    }
-
     ${ActionsContainer} {
       visibility: visible;
     }
@@ -67,8 +74,8 @@ export const Body = styled.div`
 `;
 
 export const Header = styled.div`
-  padding-bottom: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
   align-items: center;
+  justify-content: space-between;
 `;

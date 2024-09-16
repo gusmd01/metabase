@@ -13,8 +13,12 @@ export interface EntityMenuIconButtonProps {
 }
 
 export const EntityMenuIconButton = styled(Button)<EntityMenuIconButtonProps>`
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
+  border-radius: 20px;
+  .Icon-ellipsis {
+    transform: rotate(90deg);
+  }
 
   ${({ color }) => (color ? `color: ${color}` : null)};
 

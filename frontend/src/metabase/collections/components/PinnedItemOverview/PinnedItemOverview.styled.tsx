@@ -21,3 +21,19 @@ export const Grid = styled.div`
     grid-template-columns: minmax(0, 1fr);
   }
 `;
+
+export const MainBoxContent = styled.div`
+  display: flex;
+  gap: 16px;
+`;
+
+export const StyledTitle = styled.h3`
+  font-size: 18px;
+  color: #5b5d6b;
+`;
+
+export const StyledDescription = styled.div`
+  font-size: 12px;
+  color: #5b5d6b;
+  font-weight: 500;
+`;

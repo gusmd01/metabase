@@ -1,6 +1,10 @@
 import { Global, css } from "@emotion/react";
 
-import { baseStyle, rootStyle } from "metabase/css/core/base.styled";
+import {
+  baseStyle,
+  customStyles,
+  rootStyle,
+} from "metabase/css/core/base.styled";
 import { defaultFontFiles } from "metabase/css/core/fonts.styled";
 import { getSitePath } from "metabase/lib/dom";
 import { useSelector } from "metabase/lib/redux";
@@ -44,6 +48,7 @@ export const GlobalStyles = (): JSX.Element => {
     }
 
     ${baseStyle}
+    ${customStyles}
   `;
 
   return <Global styles={styles} />;

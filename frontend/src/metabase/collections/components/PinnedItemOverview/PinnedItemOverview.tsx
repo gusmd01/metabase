@@ -12,13 +12,18 @@ import type {
 import { isPreviewShown, isRootCollection } from "metabase/collections/utils";
 import ItemDragSource from "metabase/containers/dnd/ItemDragSource";
 import CS from "metabase/css/core/index.css";
-import { color } from "metabase/lib/colors";
 import type { IconName } from "metabase/ui";
-import { Box, Group, Icon, Stack } from "metabase/ui";
+import { Group, Stack } from "metabase/ui";
 import type Database from "metabase-lib/v1/metadata/Database";
 import type { Bookmark, Collection, CollectionItem } from "metabase-types/api";
 
-import { Container, Grid } from "./PinnedItemOverview.styled";
+import {
+  Container,
+  Grid,
+  MainBoxContent,
+  StyledDescription,
+  StyledTitle,
+} from "./PinnedItemOverview.styled";
 
 type Props = {
   databases?: Database[];
@@ -195,7 +200,7 @@ function PinnedItemOverview({
                   : t`Start new explorations about ${collection.name} here`
               }
             />
-            <Grid>
+            <MainBoxContent>
               {modelItems.map(item => (
                 <div key={item.id} className={CS.relative}>
                   <PinnedItemSortDropTarget
@@ -226,7 +231,7 @@ function PinnedItemOverview({
                   />
                 </div>
               ))}
-            </Grid>
+            </MainBoxContent>
           </div>
         )}
       </Stack>
@@ -240,14 +245,13 @@ interface SectionTitleProps {
   icon?: IconName;
 }
 
-function SectionTitle({ title, description, icon }: SectionTitleProps) {
+function SectionTitle({ title, description }: SectionTitleProps) {
   return (
-    <Stack spacing="sm" pb="md">
+    <Stack spacing="sm" pb="md" mb="10px">
       <Group spacing="sm">
-        {icon && <Icon name={icon} color={color("brand")} />}
-        <h3>{title}</h3>
+        <StyledTitle>{title}</StyledTitle>
       </Group>
-      {description && <Box c="text-medium">{description}</Box>}
+      {description && <StyledDescription>{description}</StyledDescription>}
     </Stack>
   );
 }

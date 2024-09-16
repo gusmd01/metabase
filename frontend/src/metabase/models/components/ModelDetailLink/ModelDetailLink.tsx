@@ -41,6 +41,7 @@ function ModelDetailLink({ model, ...props }: Props) {
       iconSize={16}
       role="link"
       data-testid="model-detail-link"
+      className="model-detail-button"
     />
   );
 }

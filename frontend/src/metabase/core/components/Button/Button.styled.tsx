@@ -13,6 +13,10 @@ export const ButtonRoot = styled.button<ButtonRootProps>`
   transition: all 200ms linear;
   flex-shrink: 0;
 
+  &.model-detail-button {
+    border-radius: 20px;
+  }
+
   @media (prefers-reduced-motion) {
     &,
     &:hover {

@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 
 export const rootStyle = css`
-  font-family: var(--mb-default-font-family), sans-serif;
+  font-family: Poppins;
   font-weight: 400;
   font-style: normal;
   color: var(--mb-color-text-primary);
@@ -73,11 +73,15 @@ export const baseStyle = css`
   button,
   input,
   textarea {
-    font-family: var(--mb-default-font-family), "Helvetica Neue", Helvetica,
-      sans-serif;
+    font-family: Poppins;
   }
 
   textarea {
     min-height: 110px;
+  }
+`;
+
+export const customStyles = css`
+  .emotion-1x06dni {
   }
 `;

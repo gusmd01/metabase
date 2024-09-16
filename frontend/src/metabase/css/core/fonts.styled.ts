@@ -360,6 +360,24 @@ export const defaultFontFiles = ({ baseUrl = "./" } = {}) => {
 
       @font-face {
         font-family: Poppins;
+        src: local("Poppins Medium"), local("Poppins-Medium"),
+        url("${basePath}/Poppins/Poppins-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Poppins;
+        src: local("Poppins SemiBold"), local("Poppins-SemiBold"),
+        url("${basePath}/Poppins/Poppins-SemiBold.woff2") format("woff2");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Poppins;
         src: local("Poppins Black"), local("Poppins-Black"),
         url("${basePath}/Poppins/Poppins-Black.woff2") format("woff2");
         font-weight: 900;

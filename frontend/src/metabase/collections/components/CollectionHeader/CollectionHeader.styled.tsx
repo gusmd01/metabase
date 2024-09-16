@@ -7,13 +7,18 @@ export const HeaderRoot = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 0.3rem;
   padding-top: 0.25rem;
 
   ${breakpointMinSmall} {
     align-items: center;
     flex-direction: row;
     padding-top: 0.5rem;
+  }
+
+  textarea {
+    font-weight: 600;
+    padding: 0;
   }
 `;
 
