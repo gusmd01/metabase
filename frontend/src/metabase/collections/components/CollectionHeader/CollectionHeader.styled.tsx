@@ -8,12 +8,12 @@ export const HeaderRoot = styled.div`
   justify-content: space-between;
   flex-direction: column;
   margin-bottom: 0.3rem;
-  padding-top: 0.25rem;
+  padding-top: 0;
+  padding-right: 130px;
 
   ${breakpointMinSmall} {
     align-items: center;
     flex-direction: row;
-    padding-top: 0.5rem;
   }
 
   textarea {
@@ -39,6 +39,7 @@ export const CollectionHeaderButton = styled(
   padding: 0.25rem 0.5rem;
   height: 2rem;
   width: 2rem;
+  border-radius: 50%;
 
   &:hover {
     color: var(--mb-color-brand);

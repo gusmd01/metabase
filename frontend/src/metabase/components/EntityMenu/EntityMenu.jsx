@@ -90,7 +90,10 @@ class EntityMenu extends Component {
         </Popover.Target>
         <Popover.Dropdown>
           {menuItemContent || (
-            <ol className={CS.p1} style={{ minWidth: minWidth ?? 184 }}>
+            <ol
+              className={CS.p1}
+              style={{ minWidth: minWidth ?? 184, padding: 0 }}
+            >
               {items.map(item => {
                 if (!item) {
                   return null;

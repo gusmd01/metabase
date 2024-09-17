@@ -42,12 +42,24 @@ export const Table = styled.table<{ isInDragLayer?: boolean }>`
   }
 
   tbody {
+    tr {
+      &:hover {
+        background-color: #0000000a;
+      }
+    }
+
     td {
       font-size: 12px;
       color: #161616;
 
+      &:hover {
+        a {
+          color: #161616 !important;
+        }
+      }
+
       button {
-        svg {
+        svg:not(.Icon-check) {
           color: #777986;
         }
       }

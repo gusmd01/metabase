@@ -3,14 +3,10 @@ import type { CollectionId } from "metabase-types/api";
 import CollectionBreadcrumbs from "../../containers/CollectionBreadcrumbs";
 import QuestionLineage from "../../containers/QuestionLineage";
 import NewItemButton from "../NewItemButton";
-import { ProfileLink } from "../ProfileLink";
-import { SearchBar } from "../search/SearchBar";
-import { SearchButton } from "../search/SearchButton";
 
 import {
   AppBarInfoContainer,
   AppBarLeftContainer,
-  AppBarProfileLinkContainer,
   AppBarRightContainer,
   AppBarRoot,
 } from "./AppBarLarge.styled";
@@ -38,13 +34,11 @@ const AppBarLarge = ({
   isNavBarEnabled,
   isLogoVisible,
   isSearchVisible,
-  isEmbedded,
   isNewButtonVisible,
   isProfileLinkVisible,
   isCollectionPathVisible,
   isQuestionLineageVisible,
   onToggleNavbar,
-  onLogout,
 }: AppBarLargeProps): JSX.Element => {
   const isNavBarVisible = isNavBarOpen && isNavBarEnabled;
 
@@ -72,13 +66,7 @@ const AppBarLarge = ({
       </AppBarLeftContainer>
       {(isSearchVisible || isNewButtonVisible || isProfileLinkVisible) && (
         <AppBarRightContainer>
-          {isSearchVisible && (isEmbedded ? <SearchBar /> : <SearchButton />)}
           {isNewButtonVisible && <NewItemButton collectionId={collectionId} />}
-          {isProfileLinkVisible && (
-            <AppBarProfileLinkContainer>
-              <ProfileLink onLogout={onLogout} />
-            </AppBarProfileLinkContainer>
-          )}
         </AppBarRightContainer>
       )}
     </AppBarRoot>

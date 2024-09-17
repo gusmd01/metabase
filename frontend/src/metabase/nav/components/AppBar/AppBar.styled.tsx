@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 
 export const AppBarRoot = styled.header`
-  position: relative;
   z-index: 4;
+  position: absolute;
+  right: 0;
+  top: 6px;
 
   @media print {
     display: none;

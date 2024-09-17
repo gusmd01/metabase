@@ -40,6 +40,7 @@ export const BookmarkButton = styled(Button)<BookmarkButtonProps>`
   padding: 0.25rem 0.5rem;
   height: 2rem;
   width: 2rem;
+  border-radius: 50%;
 
   &:hover {
     color: var(--mb-color-brand);

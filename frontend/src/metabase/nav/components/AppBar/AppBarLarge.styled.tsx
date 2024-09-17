@@ -11,8 +11,7 @@ export const AppBarRoot = styled.div<AppBarRootProps>`
   align-items: center;
   gap: 1rem;
   height: ${APP_BAR_HEIGHT};
-  padding-left: 1.325rem;
-  padding-right: 1rem;
+  padding: 0;
   border-bottom: 1px solid
     ${props => (props.isNavBarOpen ? "var(--mb-color-border)" : "transparent")};
   background-color: var(--mb-color-bg-white);
@@ -20,10 +19,10 @@ export const AppBarRoot = styled.div<AppBarRootProps>`
 `;
 
 export const AppBarLeftContainer = styled.div`
-  display: flex;
   flex: 1 1 auto;
   align-items: center;
   min-width: 5rem;
+  display: none;
 `;
 
 export const AppBarRightContainer = styled.div`
