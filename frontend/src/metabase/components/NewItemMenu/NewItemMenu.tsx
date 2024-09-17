@@ -4,10 +4,9 @@ import { useMemo } from "react";
 import { t } from "ttag";
 
 import EntityMenu from "metabase/components/EntityMenu";
-import { useDispatch, useSelector } from "metabase/lib/redux";
+import { useDispatch } from "metabase/lib/redux";
 import * as Urls from "metabase/lib/urls";
 import { setOpenModal } from "metabase/redux/ui";
-import { getSetting } from "metabase/selectors/settings";
 import type { CollectionId } from "metabase-types/api";
 
 export interface NewItemMenuProps {
@@ -43,15 +42,10 @@ const NewItemMenu = ({
   hasModels,
   hasDataAccess,
   hasNativeWrite,
-  hasDatabaseWithJsonEngine,
   hasDatabaseWithActionsEnabled,
   onCloseNavbar,
 }: NewItemMenuProps) => {
   const dispatch = useDispatch();
-
-  const lastUsedDatabaseId = useSelector(state =>
-    getSetting(state, "last-used-native-database-id"),
-  );
 
   const menuItems = useMemo(() => {
     const items: NewMenuItem[] = [];
@@ -65,21 +59,6 @@ const NewItemMenu = ({
           creationType: "custom_question",
           collectionId,
           cardType: "question",
-        }),
-        onClose: onCloseNavbar,
-      });
-    }
-
-    if (hasNativeWrite) {
-      items.push({
-        title: hasDatabaseWithJsonEngine ? t`Native query` : t`SQL query`,
-        icon: "sql",
-        link: Urls.newQuestion({
-          type: "native",
-          creationType: "native_question",
-          collectionId,
-          cardType: "question",
-          databaseId: lastUsedDatabaseId || undefined,
         }),
         onClose: onCloseNavbar,
       });
@@ -140,9 +119,7 @@ const NewItemMenu = ({
     hasDatabaseWithActionsEnabled,
     collectionId,
     onCloseNavbar,
-    hasDatabaseWithJsonEngine,
     dispatch,
-    lastUsedDatabaseId,
   ]);
 
   return (

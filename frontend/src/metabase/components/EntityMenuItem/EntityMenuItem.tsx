@@ -50,6 +50,7 @@ const EntityMenuItem = ({
       color={color}
       hoverColor={hoverColor}
       hoverBgColor={hoverBgColor}
+      className="menu-item"
     >
       {icon && <MenuItemIcon name={icon} size={16} />}
       <MenuItemTitle>{title}</MenuItemTitle>

@@ -16,29 +16,27 @@ export interface MenuItemProps {
 export const MenuItemContent = styled.div<MenuItemProps>`
   display: flex;
   align-items: center;
-  border-radius: 0.5em;
   cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
   color: ${props =>
     color(props.disabled ? "text-light" : props.color || "text-dark")};
   padding: 0.85em 1.45em;
   text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 0.6;
 
-  :hover {
+  &:hover {
     color: ${props => color((!props.disabled && props.hoverColor) || "brand")};
     background-color: ${props =>
       !props.disabled && props.hoverBgColor
         ? color(props.hoverBgColor)
-        : "var(--mb-color-bg-light)"};
+        : "#F0F2F5"};
+    opacity: 1;
   }
 
   > .Icon {
     color: ${props =>
       color(props.disabled ? "text-light" : props.color || "text-dark")};
     margin-right: 0.65em;
-  }
-
-  :hover > .Icon {
-    color: ${props => color((!props.disabled && props.hoverColor) || "brand")};
   }
 `;
 
@@ -47,8 +45,10 @@ export const MenuItemIcon = styled(Icon)`
 `;
 
 export const MenuItemTitle = styled.span`
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 12px;
   line-height: 1rem;
+  color: #101223;
 `;
 
 export const MenuLink = styled(Link)`

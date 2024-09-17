@@ -11,11 +11,15 @@
   border: 1px solid color-mix(in srgb, var(--mb-color-border), black 5%);
   color: var(--mb-color-text-primary);
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
   font-family: var(--mb-default-font-family), sans-serif;
-  border-radius: var(--default-button-border-radius);
   transition: all 200ms linear;
   transition-property: color, border-color, background-color;
+  border-radius: 4px;
+}
+
+.Button h4 {
+  font-weight: 500;
 }
 
 .Button:hover {

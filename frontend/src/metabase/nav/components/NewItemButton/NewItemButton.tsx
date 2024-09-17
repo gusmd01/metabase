@@ -14,7 +14,7 @@ const NewItemButton = ({ collectionId }: NewItemButtonProps) => {
     <NewItemMenu
       trigger={
         <NewButton primary icon="add" aria-label={t`New`}>
-          <NewButtonText>{t`New`}</NewButtonText>
+          <NewButtonText>{t`Create New`}</NewButtonText>
         </NewButton>
       }
       collectionId={collectionId}

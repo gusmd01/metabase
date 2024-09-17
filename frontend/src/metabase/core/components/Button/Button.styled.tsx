@@ -58,6 +58,7 @@ export const ButtonRoot = styled.button<ButtonRootProps>`
       line-height: 1.5rem;
       padding: 0.5rem;
       color: var(--mb-color-brand);
+      border-radius: 4px;
 
       &:hover {
         background-color: var(--mb-color-bg-light);
@@ -103,6 +104,7 @@ export const ButtonTextContainer = styled.div<ButtonTextContainerProps>`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  font-weight: 500;
 
   ${props => {
     if (props.hasIcon) {
