@@ -121,7 +121,7 @@ function SourceDatasetBreadcrumbs({ question, ...props }) {
         <HeadBreadcrumbs.Badge
           key="dataset-collection"
           to={Urls.collection(collection)}
-          icon={question.type() === "metric" ? "metric" : "model"}
+          // icon={question.type() === "metric" ? "metric" : "model"}
           inactiveColor="text-light"
         >
           {collection?.name || t`Our analytics`}

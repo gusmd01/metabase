@@ -121,6 +121,7 @@ export function NotebookDataPicker({
           disabled={isDisabled}
           onClick={handleClick}
           onAuxClick={handleAuxClick}
+          className="notebook-button"
         >
           <Group spacing="xs">
             {tableInfo && <Icon name={getTableIcon(tableInfo)} />}

@@ -7,6 +7,8 @@ import * as Lib from "metabase-lib";
 import type { NotebookStepProps } from "../../types";
 import { ClauseStep } from "../ClauseStep";
 
+import { StyledWrapper } from "./AggregateStep.styled";
+
 export function AggregateStep({
   query,
   step,
@@ -43,27 +45,30 @@ export function AggregateStep({
     Lib.displayInfo(query, stageIndex, aggregation).longDisplayName;
 
   return (
-    <ClauseStep
-      items={clauses}
-      initialAddText={t`Pick the metric you want to see`}
-      readOnly={readOnly}
-      color={color}
-      isLastOpened={isLastOpened}
-      renderName={renderAggregationName}
-      renderPopover={({ item: aggregation, index, onClose }) => (
-        <AggregationPopover
-          query={query}
-          stageIndex={stageIndex}
-          clause={aggregation}
-          clauseIndex={index}
-          onQueryChange={updateQuery}
-          onClose={onClose}
-        />
-      )}
-      onReorder={handleReorderAggregation}
-      onRemove={handleRemoveAggregation}
-      data-testid="aggregate-step"
-    />
+    <StyledWrapper>
+      <ClauseStep
+        items={clauses}
+        initialAddText={t`Pick the metric you want to see`}
+        readOnly={readOnly}
+        color={color}
+        isLastOpened={isLastOpened}
+        renderName={renderAggregationName}
+        renderPopover={({ item: aggregation, index, onClose }) => (
+          <AggregationPopover
+            query={query}
+            stageIndex={stageIndex}
+            clause={aggregation}
+            clauseIndex={index}
+            onQueryChange={updateQuery}
+            onClose={onClose}
+          />
+        )}
+        onReorder={handleReorderAggregation}
+        onRemove={handleRemoveAggregation}
+        data-testid="aggregate-step"
+        className={"dashedBorder metrics"}
+      />
+    </StyledWrapper>
   );
 }
 

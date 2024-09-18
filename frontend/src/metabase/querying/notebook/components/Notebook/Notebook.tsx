@@ -68,7 +68,7 @@ export const Notebook = ({
   };
 
   return (
-    <Box pos="relative" p={{ base: "1rem", sm: "2rem" }}>
+    <Box pos="relative" p={{ base: "1rem 0", sm: "2rem 0" }}>
       <NotebookStepList
         updateQuestion={handleUpdateQuestion}
         question={question}

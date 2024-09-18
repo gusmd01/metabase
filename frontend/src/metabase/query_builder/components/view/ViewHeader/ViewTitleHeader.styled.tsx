@@ -15,14 +15,12 @@ import { QuestionDataSource } from "./components/QuestionDataSource";
 export const ViewHeaderContainer = styled(ViewSection)<{
   isNavBarOpen?: boolean;
 }>`
-  border-bottom: 1px solid var(--mb-color-border);
-  padding-top: ${space(1)};
-  padding-bottom: ${space(1)};
+  border: none;
+  padding: 0;
 
   ${breakpointMaxSmall} {
     flex-direction: column;
     align-items: start;
-    padding: ${space(1)} 0;
     ${({ isNavBarOpen }) =>
       isNavBarOpen ? `margin-top: ${APP_SUBHEADER_HEIGHT};` : null}
   }
@@ -61,14 +59,11 @@ export const BackButtonContainer = styled.span`
 `;
 
 export const SaveButton = styled(MantineButton)<ButtonProps>`
-  border-radius: 8px;
+  border-radius: 4px;
+  height: 36px;
 
   &[data-disabled="true"] {
     pointer-events: all;
-  }
-
-  :hover {
-    background-color: var(--mb-color-bg-light);
   }
 `;
 
@@ -185,6 +180,9 @@ export const ViewHeaderActionPanel = styled.div`
   align-items: center;
   margin-left: auto;
   gap: 0.5rem;
+  position: relative;
+  top: 2px;
+  padding-right: 130px;
 
   ${breakpointMaxSmall} {
     margin-left: 0;

@@ -18,7 +18,6 @@ import {
   QuestionActions,
   QuestionNotebookButton,
   QuestionSummarizeWidget,
-  ToggleNativeQueryPreview,
 } from "metabase/query_builder/components/view/ViewHeader/components";
 import { canExploreResults } from "metabase/query_builder/components/view/ViewHeader/utils";
 import type { QueryModalType } from "metabase/query_builder/constants";
@@ -187,10 +186,6 @@ export function ViewTitleHeaderRightSide({
           setQueryBuilderMode={setQueryBuilderMode}
         />
       )}
-      {ToggleNativeQueryPreview.shouldRender({
-        question,
-        queryBuilderMode,
-      }) && <ToggleNativeQueryPreview question={question} />}
       {hasExploreResultsLink && <ExploreResultsLink question={question} />}
       {hasRunButton && !isShowingNotebook && (
         <ViewHeaderIconButtonContainer>
@@ -228,7 +223,7 @@ export function ViewTitleHeaderRightSide({
             data-testid="qb-save-button"
             px="md"
             py="sm"
-            variant="subtle"
+            variant="filled"
             aria-disabled={isSaveDisabled || undefined}
             data-disabled={isSaveDisabled || undefined}
             onClick={event => {

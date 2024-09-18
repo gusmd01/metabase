@@ -28,6 +28,7 @@ interface NotebookCellItemProps {
   onClick?: React.MouseEventHandler;
   "data-testid"?: string;
   ref?: React.Ref<HTMLDivElement>;
+  className?: string;
 }
 
 export const NotebookCellItem = forwardRef<
@@ -43,6 +44,7 @@ export const NotebookCellItem = forwardRef<
     rightContainerStyle,
     children,
     readOnly,
+    className,
     ...restProps
   },
   ref,
@@ -61,6 +63,7 @@ export const NotebookCellItem = forwardRef<
       {...restProps}
       data-testid={restProps["data-testid"] ?? "notebook-cell-item"}
       ref={ref}
+      className={className}
     >
       <NotebookCellItemContentContainer
         inactive={inactive}
@@ -79,6 +82,7 @@ export const NotebookCellItem = forwardRef<
           border="left"
           roundedCorners={["right"]}
           style={rightContainerStyle}
+          className="right-container"
         >
           {right}
         </NotebookCellItemContentContainer>

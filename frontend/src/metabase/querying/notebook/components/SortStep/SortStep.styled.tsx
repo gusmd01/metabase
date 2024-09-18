@@ -8,3 +8,9 @@ export const SortDirectionButton = styled.button`
   font-weight: 700;
   cursor: pointer;
 `;
+
+export const StyledWrapper = styled.div`
+  .sort-wrapper {
+    background: #f0f2f5;
+  }
+`;

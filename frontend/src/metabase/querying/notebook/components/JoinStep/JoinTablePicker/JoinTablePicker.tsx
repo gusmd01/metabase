@@ -88,10 +88,14 @@ function JoinTableColumnPicker({ columnPicker }: JoinTableColumnPickerProps) {
 
 const CONTAINER_STYLE = {
   padding: 0,
+  background: "none",
 };
 
 const RIGHT_CONTAINER_STYLE = {
-  width: 37,
-  height: 37,
+  width: 36,
+  height: 36,
   padding: 0,
+  border: "1px solid #D2D4DACC",
+  borderRadius: "8px",
+  background: "#DEE2E6",
 };

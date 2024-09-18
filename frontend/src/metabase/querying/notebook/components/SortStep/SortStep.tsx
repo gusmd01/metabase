@@ -8,7 +8,7 @@ import * as Lib from "metabase-lib";
 import type { NotebookStepProps } from "../../types";
 import { ClauseStep } from "../ClauseStep";
 
-import { SortDirectionButton } from "./SortStep.styled";
+import { SortDirectionButton, StyledWrapper } from "./SortStep.styled";
 
 export function SortStep({
   query,
@@ -62,31 +62,34 @@ export function SortStep({
   };
 
   return (
-    <ClauseStep
-      items={clauses}
-      readOnly={readOnly}
-      color={color}
-      isLastOpened={isLastOpened}
-      renderName={clause => (
-        <SortDisplayName
-          displayInfo={Lib.displayInfo(query, stageIndex, clause)}
-          onToggleSortDirection={() => handleToggleOrderByDirection(clause)}
-        />
-      )}
-      renderPopover={({ item: orderBy, index, onClose }) => (
-        <SortPopover
-          query={query}
-          stageIndex={stageIndex}
-          orderBy={orderBy}
-          orderByIndex={index}
-          onAddOrderBy={handleAddOrderBy}
-          onUpdateOrderByColumn={handleUpdateOrderByColumn}
-          onClose={onClose}
-        />
-      )}
-      onReorder={handleReorderOrderBy}
-      onRemove={handleRemoveOrderBy}
-    />
+    <StyledWrapper>
+      <ClauseStep
+        items={clauses}
+        readOnly={readOnly}
+        color={color}
+        isLastOpened={isLastOpened}
+        renderName={clause => (
+          <SortDisplayName
+            displayInfo={Lib.displayInfo(query, stageIndex, clause)}
+            onToggleSortDirection={() => handleToggleOrderByDirection(clause)}
+          />
+        )}
+        renderPopover={({ item: orderBy, index, onClose }) => (
+          <SortPopover
+            query={query}
+            stageIndex={stageIndex}
+            orderBy={orderBy}
+            orderByIndex={index}
+            onAddOrderBy={handleAddOrderBy}
+            onUpdateOrderByColumn={handleUpdateOrderByColumn}
+            onClose={onClose}
+          />
+        )}
+        onReorder={handleReorderOrderBy}
+        onRemove={handleRemoveOrderBy}
+        className="sort"
+      />
+    </StyledWrapper>
   );
 }
 

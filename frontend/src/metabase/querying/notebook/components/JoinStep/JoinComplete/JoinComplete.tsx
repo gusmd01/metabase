@@ -128,7 +128,9 @@ export function JoinComplete({
         </Flex>
       </JoinCell>
       <Box mt="1.5rem">
-        <Text color="brand" weight="bold">{t`on`}</Text>
+        <Text color="brand" weight="bold">
+          {t`on`}test
+        </Text>
       </Box>
       <JoinConditionCell color={color}>
         {conditions.map((condition, index) => {

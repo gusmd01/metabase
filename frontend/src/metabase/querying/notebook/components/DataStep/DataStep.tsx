@@ -9,7 +9,7 @@ import { FieldPicker, type FieldPickerItem } from "../FieldPicker";
 import { NotebookCell, NotebookCellItem } from "../NotebookCell";
 import { NotebookDataPicker } from "../NotebookDataPicker";
 
-import { DataStepIconButton } from "./DataStep.styled";
+import { DataStepIconButton, StypedWrapper } from "./DataStep.styled";
 
 export const DataStep = ({
   query,
@@ -40,33 +40,42 @@ export const DataStep = ({
   };
 
   return (
-    <NotebookCell color={color}>
-      <NotebookCellItem
-        color={color}
-        inactive={!table}
-        right={
-          canSelectTableColumns && (
-            <DataFieldPopover
-              query={query}
-              stageIndex={stageIndex}
-              updateQuery={updateQuery}
-            />
-          )
-        }
-        containerStyle={{ padding: 0 }}
-        rightContainerStyle={{ width: 37, height: 37, padding: 0 }}
-        data-testid="data-step-cell"
-      >
-        <NotebookDataPicker
-          title={t`Pick your starting data`}
-          query={query}
-          stageIndex={stageIndex}
-          table={table}
-          hasMetrics
-          onChange={handleTableChange}
-        />
-      </NotebookCellItem>
-    </NotebookCell>
+    <StypedWrapper>
+      <NotebookCell color={color} className="startingWrapper">
+        <NotebookCellItem
+          color={color}
+          inactive={!table}
+          right={
+            canSelectTableColumns && (
+              <DataFieldPopover
+                query={query}
+                stageIndex={stageIndex}
+                updateQuery={updateQuery}
+              />
+            )
+          }
+          containerStyle={{ padding: 0, background: "none" }}
+          rightContainerStyle={{
+            width: 36,
+            height: 36,
+            padding: 0,
+            border: "1px solid #D2D4DACC",
+            borderRadius: "8px",
+            background: "#DEE2E6",
+          }}
+          data-testid="data-step-cell"
+        >
+          <NotebookDataPicker
+            title={t`Pick your starting data`}
+            query={query}
+            stageIndex={stageIndex}
+            table={table}
+            hasMetrics
+            onChange={handleTableChange}
+          />
+        </NotebookCellItem>
+      </NotebookCell>
+    </StypedWrapper>
   );
 };
 

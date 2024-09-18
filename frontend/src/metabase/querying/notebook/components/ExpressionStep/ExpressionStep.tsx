@@ -5,6 +5,8 @@ import { getUniqueExpressionName } from "metabase-lib/v1/queries/utils/expressio
 import type { NotebookStepProps } from "../../types";
 import { ClauseStep } from "../ClauseStep";
 
+import { StyledWrapper } from "./ExpressionStep.styled";
+
 export const ExpressionStep = ({
   color,
   updateQuery,
@@ -39,59 +41,62 @@ export const ExpressionStep = ({
   };
 
   return (
-    <ClauseStep
-      color={color}
-      items={expressions}
-      renderName={renderExpressionName}
-      readOnly={readOnly}
-      renderPopover={({ item, index: expressionIndex, onClose }) => (
-        <ExpressionWidget
-          query={query}
-          stageIndex={stageIndex}
-          expressionIndex={expressionIndex}
-          name={
-            item
-              ? Lib.displayInfo(query, stageIndex, item).displayName
-              : undefined
-          }
-          clause={item}
-          withName
-          onChangeClause={(name, clause) => {
-            const uniqueName = getUniqueClauseName(
-              query,
-              stageIndex,
-              item,
-              name,
-            );
-            const namedClause = Lib.withExpressionName(clause, uniqueName);
-            const isUpdate = item;
-
-            if (isUpdate) {
-              const nextQuery = Lib.replaceClause(
+    <StyledWrapper>
+      <ClauseStep
+        color={color}
+        items={expressions}
+        renderName={renderExpressionName}
+        readOnly={readOnly}
+        renderPopover={({ item, index: expressionIndex, onClose }) => (
+          <ExpressionWidget
+            query={query}
+            stageIndex={stageIndex}
+            expressionIndex={expressionIndex}
+            name={
+              item
+                ? Lib.displayInfo(query, stageIndex, item).displayName
+                : undefined
+            }
+            clause={item}
+            withName
+            onChangeClause={(name, clause) => {
+              const uniqueName = getUniqueClauseName(
                 query,
                 stageIndex,
                 item,
-                namedClause,
+                name,
               );
-              updateQuery(nextQuery);
-            } else {
-              const nextQuery = Lib.expression(
-                query,
-                stageIndex,
-                uniqueName,
-                namedClause,
-              );
-              updateQuery(nextQuery);
-            }
-          }}
-          reportTimezone={reportTimezone}
-          onClose={onClose}
-        />
-      )}
-      isLastOpened={isLastOpened}
-      onReorder={handleReorderExpression}
-      onRemove={handleRemoveExpression}
-    />
+              const namedClause = Lib.withExpressionName(clause, uniqueName);
+              const isUpdate = item;
+
+              if (isUpdate) {
+                const nextQuery = Lib.replaceClause(
+                  query,
+                  stageIndex,
+                  item,
+                  namedClause,
+                );
+                updateQuery(nextQuery);
+              } else {
+                const nextQuery = Lib.expression(
+                  query,
+                  stageIndex,
+                  uniqueName,
+                  namedClause,
+                );
+                updateQuery(nextQuery);
+              }
+            }}
+            reportTimezone={reportTimezone}
+            onClose={onClose}
+          />
+        )}
+        isLastOpened={isLastOpened}
+        onReorder={handleReorderExpression}
+        onRemove={handleRemoveExpression}
+        className={"custom-column"}
+      />
+    </StyledWrapper>
   );
 };
 

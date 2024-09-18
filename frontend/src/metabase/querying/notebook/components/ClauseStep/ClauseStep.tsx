@@ -41,6 +41,7 @@ export type ClauseStepProps<T> = {
   onRemove: (item: T, index: number) => void;
   onReorder: (sourceItem: T, targetItem: T) => void;
   "data-testid"?: string;
+  className?: string;
 };
 
 export const ClauseStep = <T,>({
@@ -53,6 +54,7 @@ export const ClauseStep = <T,>({
   renderPopover,
   onRemove,
   onReorder,
+  className,
   ...props
 }: ClauseStepProps<T>): JSX.Element => {
   const renderItem = ({ item, index, onOpen }: RenderItemOpts<T>) => (
@@ -78,11 +80,16 @@ export const ClauseStep = <T,>({
       initialAddText={items.length === 0 && initialAddText}
       color={color}
       onClick={onOpen}
+      className={className}
     />
   );
 
   return (
-    <NotebookCell color={color} data-testid={props["data-testid"]}>
+    <NotebookCell
+      className={`${className}-wrapper`}
+      color={color}
+      data-testid={props["data-testid"]}
+    >
       <ClauseStepDndContext items={items} onReorder={onReorder}>
         {items.map((item, index) => (
           <ClausePopover

@@ -8,6 +8,8 @@ import * as Lib from "metabase-lib";
 import type { NotebookStepProps } from "../../types";
 import { ClauseStep } from "../ClauseStep";
 
+import { StyledWrapper } from "./FilterStep.styled";
+
 export function FilterStep({
   query,
   step,
@@ -64,27 +66,30 @@ export function FilterStep({
 
   return (
     <ErrorBoundary>
-      <ClauseStep
-        items={filters}
-        initialAddText={t`Add filters to narrow your answer`}
-        readOnly={readOnly}
-        color={color}
-        isLastOpened={isLastOpened}
-        renderName={renderFilterName}
-        renderPopover={({ item: filter, index, onClose }) => (
-          <FilterPopover
-            query={query}
-            stageIndex={stageIndex}
-            filter={filter}
-            filterIndex={index}
-            onAddFilter={handleAddFilter}
-            onUpdateFilter={handleUpdateFilter}
-            onClose={onClose}
-          />
-        )}
-        onReorder={handleReorderFilter}
-        onRemove={handleRemoveFilter}
-      />
+      <StyledWrapper>
+        <ClauseStep
+          items={filters}
+          initialAddText={t`Add filters to narrow your answer`}
+          readOnly={readOnly}
+          color={color}
+          isLastOpened={isLastOpened}
+          renderName={renderFilterName}
+          renderPopover={({ item: filter, index, onClose }) => (
+            <FilterPopover
+              query={query}
+              stageIndex={stageIndex}
+              filter={filter}
+              filterIndex={index}
+              onAddFilter={handleAddFilter}
+              onUpdateFilter={handleUpdateFilter}
+              onClose={onClose}
+            />
+          )}
+          onReorder={handleReorderFilter}
+          onRemove={handleRemoveFilter}
+          className={"dashedBorder"}
+        />
+      </StyledWrapper>
     </ErrorBoundary>
   );
 }
