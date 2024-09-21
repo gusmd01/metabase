@@ -9,6 +9,8 @@ import * as Lib from "metabase-lib";
 import type { NotebookStepProps } from "../../types";
 import { NotebookCell } from "../NotebookCell";
 
+import { StyledWrapper } from "./LimitStep.styled";
+
 export function LimitStep({
   query,
   step,
@@ -32,16 +34,18 @@ export function LimitStep({
   };
 
   return (
-    <NotebookCell color={color}>
-      <LimitInput
-        className={CS.mb1}
-        type="number"
-        value={value}
-        placeholder={t`Enter a limit`}
-        small
-        onBlur={handleBlur}
-        onChange={handleChange}
-      />
-    </NotebookCell>
+    <StyledWrapper>
+      <NotebookCell color={color} className="limit-wrapper">
+        <LimitInput
+          className={CS.mb1}
+          type="number"
+          value={value}
+          placeholder={t`Enter a limit`}
+          small
+          onBlur={handleBlur}
+          onChange={handleChange}
+        />
+      </NotebookCell>
+    </StyledWrapper>
   );
 }

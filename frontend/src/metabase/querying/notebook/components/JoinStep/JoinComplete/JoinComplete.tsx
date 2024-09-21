@@ -7,6 +7,7 @@ import * as Lib from "metabase-lib";
 import { NotebookCellAdd, NotebookCellItem } from "../../NotebookCell";
 import { JoinCondition } from "../JoinCondition";
 import { JoinConditionDraft } from "../JoinConditionDraft";
+import { StypedWrapper } from "../JoinDraft/JoinDraft.styled";
 import { JoinStrategyPicker } from "../JoinStrategyPicker";
 import { JoinTableColumnPicker } from "../JoinTableColumnPicker";
 import { JoinTablePicker } from "../JoinTablePicker";
@@ -96,88 +97,98 @@ export function JoinComplete({
   };
 
   return (
-    <Flex miw="100%" gap="1rem">
-      <JoinCell color={color}>
-        <Flex direction="row" gap={6}>
-          <NotebookCellItem color={color} disabled aria-label={t`Left table`}>
-            {lhsTableName}
-          </NotebookCellItem>
-          <JoinStrategyPicker
-            query={query}
-            stageIndex={stageIndex}
-            strategy={strategy}
-            isReadOnly={isReadOnly}
-            onChange={handleStrategyChange}
-          />
-          <JoinTablePicker
-            query={query}
-            stageIndex={stageIndex}
-            table={rhsTable}
-            color={color}
-            isReadOnly={isReadOnly}
-            columnPicker={
-              <JoinTableColumnPicker
-                query={query}
-                stageIndex={stageIndex}
-                join={join}
-                onChange={onQueryChange}
-              />
-            }
-            onChange={handleTableChange}
-          />
-        </Flex>
-      </JoinCell>
-      <Box mt="1.5rem">
-        <Text color="brand" weight="bold">{t`on`}</Text>
-      </Box>
-      <JoinConditionCell color={color}>
-        {conditions.map((condition, index) => {
-          const testId = `join-condition-${index}`;
-          const isLast = index === conditions.length - 1;
+    <StypedWrapper>
+      <Flex miw="100%" gap="1rem">
+        <JoinCell color={color} className="data-wrapper">
+          <Flex direction="row" gap={6}>
+            <NotebookCellItem
+              color={color}
+              disabled
+              aria-label={t`Left table`}
+              className="new_data_btn"
+            >
+              {lhsTableName}
+            </NotebookCellItem>
+            <JoinStrategyPicker
+              query={query}
+              stageIndex={stageIndex}
+              strategy={strategy}
+              isReadOnly={isReadOnly}
+              onChange={handleStrategyChange}
+            />
+            <JoinTablePicker
+              query={query}
+              stageIndex={stageIndex}
+              table={rhsTable}
+              color={color}
+              isReadOnly={isReadOnly}
+              columnPicker={
+                <JoinTableColumnPicker
+                  query={query}
+                  stageIndex={stageIndex}
+                  join={join}
+                  onChange={onQueryChange}
+                />
+              }
+              onChange={handleTableChange}
+            />
+          </Flex>
+        </JoinCell>
+        <Box mt="1.5rem">
+          <Text color="brand" weight="500">
+            {t`on`}
+          </Text>
+        </Box>
+        <JoinConditionCell color={color}>
+          {conditions.map((condition, index) => {
+            const testId = `join-condition-${index}`;
+            const isLast = index === conditions.length - 1;
 
-          return (
-            <Flex key={index} align="center" gap="sm" data-testid={testId}>
-              <JoinCondition
+            return (
+              <Flex key={index} align="center" gap="sm" data-testid={testId}>
+                <JoinCondition
+                  query={query}
+                  stageIndex={stageIndex}
+                  join={join}
+                  condition={condition}
+                  lhsTableName={lhsTableName}
+                  rhsTableName={rhsTableName}
+                  isReadOnly={isReadOnly}
+                  isRemovable={conditions.length > 1}
+                  onChange={newCondition =>
+                    handleUpdateCondition(newCondition, index)
+                  }
+                  onRemove={() => handleRemoveCondition(index)}
+                />
+                {!isLast && <Text color="text-dark">{t`and`}</Text>}
+                {isLast && !isReadOnly && !isAddingNewCondition && (
+                  <NotebookCellAdd
+                    color={color}
+                    onClick={() => setIsAddingNewCondition(true)}
+                    aria-label={t`Add condition`}
+                    className="add_condition"
+                  />
+                )}
+              </Flex>
+            );
+          })}
+          {isAddingNewCondition && (
+            <Flex data-testid="new-join-condition">
+              <JoinConditionDraft
                 query={query}
                 stageIndex={stageIndex}
-                join={join}
-                condition={condition}
+                joinable={join}
                 lhsTableName={lhsTableName}
                 rhsTableName={rhsTableName}
                 isReadOnly={isReadOnly}
-                isRemovable={conditions.length > 1}
-                onChange={newCondition =>
-                  handleUpdateCondition(newCondition, index)
-                }
-                onRemove={() => handleRemoveCondition(index)}
+                isRemovable={true}
+                onChange={handleAddCondition}
+                onRemove={() => setIsAddingNewCondition(false)}
               />
-              {!isLast && <Text color="text-dark">{t`and`}</Text>}
-              {isLast && !isReadOnly && !isAddingNewCondition && (
-                <NotebookCellAdd
-                  color={color}
-                  onClick={() => setIsAddingNewCondition(true)}
-                  aria-label={t`Add condition`}
-                />
-              )}
             </Flex>
-          );
-        })}
-        {isAddingNewCondition && (
-          <Flex data-testid="new-join-condition">
-            <JoinConditionDraft
-              query={query}
-              stageIndex={stageIndex}
-              joinable={join}
-              lhsTableName={lhsTableName}
-              rhsTableName={rhsTableName}
-              isReadOnly={isReadOnly}
-              isRemovable={true}
-              onChange={handleAddCondition}
-              onRemove={() => setIsAddingNewCondition(false)}
-            />
-          </Flex>
-        )}
-      </JoinConditionCell>
-    </Flex>
+          )}
+        </JoinConditionCell>
+      </Flex>
+    </StypedWrapper>
   );
 }

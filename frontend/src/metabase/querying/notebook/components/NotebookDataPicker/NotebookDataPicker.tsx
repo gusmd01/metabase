@@ -35,6 +35,8 @@ interface NotebookDataPickerProps {
     table: Lib.TableMetadata | Lib.CardMetadata,
     metadataProvider: Lib.MetadataProvider,
   ) => void;
+  className?: string;
+  dataClassName?: string;
 }
 
 export function NotebookDataPicker({
@@ -47,6 +49,8 @@ export function NotebookDataPicker({
   hasMetrics,
   isDisabled,
   onChange,
+  className,
+  dataClassName,
 }: NotebookDataPickerProps) {
   const [isOpen, setIsOpen] = useState(!table);
   const store = useStore();
@@ -121,6 +125,7 @@ export function NotebookDataPicker({
           disabled={isDisabled}
           onClick={handleClick}
           onAuxClick={handleAuxClick}
+          className="notebook-button"
         >
           <Group spacing="xs">
             {tableInfo && <Icon name={getTableIcon(tableInfo)} />}
@@ -141,6 +146,8 @@ export function NotebookDataPicker({
           ]}
           onChange={handleChange}
           onClose={() => setIsOpen(false)}
+          className={className}
+          dataClassName={dataClassName}
         />
       )}
     </>

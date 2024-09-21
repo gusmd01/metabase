@@ -115,6 +115,7 @@ function ColumnPicker({
           width="100%"
           alwaysExpanded
           disableSearch
+          className="summerize-column-picker"
         />
       </Box>
     </>

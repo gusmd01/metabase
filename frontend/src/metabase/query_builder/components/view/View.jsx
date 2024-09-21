@@ -262,7 +262,12 @@ class View extends Component {
         />
         {/*This is used so that the New Question Header is unmounted after the animation*/}
         <Transition mounted={isNewQuestion} transition={fadeIn} duration={300}>
-          {style => <NewQuestionHeader className={CS.spread} style={style} />}
+          {style => (
+            <NewQuestionHeader
+              className={`${CS.spread} new_view_header`}
+              style={style}
+            />
+          )}
         </Transition>
       </QueryBuilderViewHeaderContainer>
     );

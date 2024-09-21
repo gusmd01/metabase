@@ -9,6 +9,7 @@ import * as Lib from "metabase-lib";
 import {
   JoinCellItem,
   JoinColumnPicker,
+  StyledWrapper,
 } from "./JoinConditionColumnPicker.styled";
 
 interface JoinConditionColumnPickerProps {
@@ -102,37 +103,40 @@ const JoinColumnTarget = forwardRef(function JoinColumnTarget(
   );
 
   return (
-    <JoinCellItem
-      ref={ref}
-      isOpen={isOpened}
-      isColumnSelected={column != null}
-      isReadOnly={isReadOnly}
-      disabled={isReadOnly}
-      onClick={onClick}
-      aria-label={isLhsColumn ? t`Left column` : t`Right column`}
-    >
-      {tableName != null && (
+    <StyledWrapper>
+      <JoinCellItem
+        ref={ref}
+        isOpen={isOpened}
+        isColumnSelected={column != null}
+        isReadOnly={isReadOnly}
+        disabled={isReadOnly}
+        onClick={onClick}
+        aria-label={isLhsColumn ? t`Left column` : t`Right column`}
+        className="joinCellCon"
+      >
+        {tableName != null && (
+          <Text
+            display="block"
+            size={11}
+            lh={1}
+            color={columnInfo ? "text-white" : "brand"}
+            align="left"
+            weight={400}
+          >
+            {tableName}
+          </Text>
+        )}
         <Text
           display="block"
-          size={11}
-          lh={1}
           color={columnInfo ? "text-white" : "brand"}
           align="left"
-          weight={400}
+          weight={500}
+          lh={1}
         >
-          {tableName}
+          {columnInfo?.displayName ?? t`Pick a column…`}
         </Text>
-      )}
-      <Text
-        display="block"
-        color={columnInfo ? "text-white" : "brand"}
-        align="left"
-        weight={700}
-        lh={1}
-      >
-        {columnInfo?.displayName ?? t`Pick a column…`}
-      </Text>
-    </JoinCellItem>
+      </JoinCellItem>
+    </StyledWrapper>
   );
 });
 
@@ -181,6 +185,7 @@ function JoinColumnDropdown({
       onSelect={onChange}
       onClose={onClose}
       data-testid={isLhsColumn ? "lhs-column-picker" : "rhs-column-picker"}
+      className="join-column-picker"
     />
   );
 }

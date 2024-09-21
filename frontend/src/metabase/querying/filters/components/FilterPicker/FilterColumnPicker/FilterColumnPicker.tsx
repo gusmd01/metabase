@@ -24,6 +24,7 @@ export interface FilterColumnPickerProps {
   onColumnSelect: (column: Lib.ColumnMetadata) => void;
   onSegmentSelect: (segment: Lib.SegmentMetadata) => void;
   onExpressionSelect: () => void;
+  className?: string;
 }
 
 type Section = {
@@ -59,6 +60,7 @@ export function FilterColumnPicker({
   onColumnSelect,
   onSegmentSelect,
   onExpressionSelect,
+  className,
 }: FilterColumnPickerProps) {
   const sections = useMemo(() => {
     const columns = Lib.filterableColumns(query, stageIndex);
@@ -127,6 +129,7 @@ export function FilterColumnPicker({
         searchProp={["name", "displayName"]}
         globalSearch
         withBorders
+        className={className}
       />
     </DelayGroup>
   );

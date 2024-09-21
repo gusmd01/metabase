@@ -11,7 +11,7 @@ export const NotebookCell = styled.div<{ color: string; padding?: string }>`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: ${props => alpha(props.color, 0.1)};
   padding: ${props => props.padding || "14px"};
   color: ${props => props.color};
@@ -27,7 +27,7 @@ export const NotebookCellItemContainer = styled.div<{
   align-items: center;
   font-weight: bold;
   color: ${props => (props.inactive ? props.color : color("text-white"))};
-  border-radius: 6px;
+  border-radius: 8px;
   border: 2px solid transparent;
   border-color: ${props =>
     props.inactive ? alpha(props.color, 0.25) : "transparent"};
@@ -44,6 +44,18 @@ export const NotebookCellItemContainer = styled.div<{
 
   .Icon-close {
     opacity: 0.6;
+  }
+
+  &.dashedBorder {
+    color: #000;
+    border: 1px dashed #000;
+    font-weight: 400;
+    height: 36px;
+    overflow: hidden;
+
+    .iconCon {
+      display: flex;
+    }
   }
 `;
 

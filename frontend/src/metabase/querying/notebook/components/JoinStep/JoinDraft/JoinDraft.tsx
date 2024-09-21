@@ -11,7 +11,7 @@ import { JoinStrategyPicker } from "../JoinStrategyPicker";
 import { JoinTableColumnDraftPicker } from "../JoinTableColumnDraftPicker";
 import { JoinTablePicker } from "../JoinTablePicker";
 
-import { JoinCell, JoinConditionCell } from "./JoinDraft.styled";
+import { JoinCell, JoinConditionCell, StypedWrapper } from "./JoinDraft.styled";
 import { getDefaultJoinStrategy, getJoinFields } from "./utils";
 
 interface JoinDraftProps {
@@ -107,58 +107,77 @@ export function JoinDraft({
   );
 
   return (
-    <Flex miw="100%" gap="1rem">
-      <JoinCell color={color}>
-        <Flex direction="row" gap={6}>
-          <NotebookCellItem color={color} disabled aria-label={t`Left table`}>
-            {lhsTableName}
-          </NotebookCellItem>
-          <JoinStrategyPicker
-            query={query}
-            stageIndex={stageIndex}
-            strategy={strategy}
-            isReadOnly={isReadOnly}
-            onChange={setStrategy}
-          />
-          <JoinTablePicker
-            query={query}
-            stageIndex={stageIndex}
-            table={rhsTable}
-            color={color}
-            isReadOnly={isReadOnly}
-            columnPicker={
-              <JoinTableColumnDraftPicker
-                query={query}
-                stageIndex={stageIndex}
-                columns={rhsTableColumns}
-                selectedColumns={selectedRhsTableColumns}
-                onChange={setSelectedRhsTableColumns}
-              />
-            }
-            onChange={handleTableChange}
-          />
-        </Flex>
-      </JoinCell>
-      {rhsTable && (
-        <>
-          <Box mt="1.5rem">
-            <Text color="brand" weight="bold">{t`on`}</Text>
-          </Box>
-          <JoinConditionCell color={color} data-testid="new-join-condition">
-            <JoinConditionDraft
+    <StypedWrapper>
+      <Flex miw="100%" gap="1rem">
+        <JoinCell color={color} className="data-wrapper">
+          <Flex direction="row" gap={6}>
+            <NotebookCellItem
+              containerStyle={{
+                background: "#fff",
+                border: "1px solid #D2D4DACC",
+                borderRadius: "8px",
+                padding: "6px 10px",
+                color: "#404252",
+                fontWeight: "500",
+              }}
+              color={color}
+              disabled
+              aria-label={t`Left table`}
+              className="previous_btn"
+            >
+              {lhsTableName}
+            </NotebookCellItem>
+            <JoinStrategyPicker
               query={query}
               stageIndex={stageIndex}
-              joinable={rhsTable}
-              lhsTableName={lhsTableName}
-              rhsTableName={rhsTableName}
+              strategy={strategy}
               isReadOnly={isReadOnly}
-              isRemovable={false}
-              onChange={handleConditionChange}
-              onLhsColumnChange={setLhsColumn}
+              onChange={setStrategy}
             />
-          </JoinConditionCell>
-        </>
-      )}
-    </Flex>
+            <JoinTablePicker
+              query={query}
+              stageIndex={stageIndex}
+              table={rhsTable}
+              color={color}
+              isReadOnly={isReadOnly}
+              columnPicker={
+                <JoinTableColumnDraftPicker
+                  query={query}
+                  stageIndex={stageIndex}
+                  columns={rhsTableColumns}
+                  selectedColumns={selectedRhsTableColumns}
+                  onChange={setSelectedRhsTableColumns}
+                />
+              }
+              onChange={handleTableChange}
+            />
+          </Flex>
+        </JoinCell>
+        {rhsTable && (
+          <>
+            <Box mt="1.5rem">
+              <Text color="#5B5D6B" weight="500">{t`on`}</Text>
+            </Box>
+            <JoinConditionCell
+              color={color}
+              data-testid="new-join-condition"
+              className="data-wrapper"
+            >
+              <JoinConditionDraft
+                query={query}
+                stageIndex={stageIndex}
+                joinable={rhsTable}
+                lhsTableName={lhsTableName}
+                rhsTableName={rhsTableName}
+                isReadOnly={isReadOnly}
+                isRemovable={false}
+                onChange={handleConditionChange}
+                onLhsColumnChange={setLhsColumn}
+              />
+            </JoinConditionCell>
+          </>
+        )}
+      </Flex>
+    </StypedWrapper>
   );
 }

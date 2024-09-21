@@ -33,7 +33,7 @@ export function SummarizeStep({
           {t`Default time dimension`}
         </Box>
       ) : (
-        <Box c={color} fw="bold">{t`by`}</Box>
+        <Box fw="500" fs="16px">{t`by`}</Box>
       )}
       <Box w={{ base: "100%", md: "50%" }}>
         <BreakoutStep

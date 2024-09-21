@@ -56,7 +56,7 @@ export interface NotebookStepProps {
 export interface NotebookStepHeaderProps {
   step: NotebookStep;
   title: string;
-  color: string;
+  color?: string;
   canRevert: boolean;
   onRevert?: () => void;
 }

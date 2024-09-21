@@ -52,20 +52,24 @@ export const QueryBuilderMain = styled.main<{ isSidebarOpen: boolean }>`
  *
  * @link https://github.com/metabase/metabase/issues/40334
  */
-const headerHeight = "4rem";
 
-export const BorderedViewTitleHeader = styled(ViewTitleHeader)`
-  border-bottom: 1px solid var(--mb-color-border);
-  padding-top: 8px;
-  padding-bottom: 8px;
-  min-height: ${headerHeight};
-`;
+export const BorderedViewTitleHeader = styled(ViewTitleHeader)``;
 
 export const QueryBuilderViewHeaderContainer = styled.div`
   flex-shrink: 0;
   background-color: var(--mb-color-bg-white);
   position: relative;
   z-index: 3;
+
+  .new_view_header {
+    top: 10px;
+
+    > div {
+      font-size: 24px;
+      font-weight: 600;
+      color: #404252;
+    }
+  }
 `;
 
 export const NativeQueryEditorContainer = styled.div`

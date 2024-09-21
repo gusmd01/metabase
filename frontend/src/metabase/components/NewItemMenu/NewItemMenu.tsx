@@ -53,7 +53,7 @@ const NewItemMenu = ({
     if (hasDataAccess) {
       items.push({
         title: t`Question`,
-        icon: "insight",
+        icon: "question",
         link: Urls.newQuestion({
           mode: "notebook",
           creationType: "custom_question",
@@ -67,7 +67,7 @@ const NewItemMenu = ({
     items.push(
       {
         title: t`Dashboard`,
-        icon: "dashboard",
+        icon: "arrow_down",
         action: () => dispatch(setOpenModal("dashboard")),
       },
       {
@@ -98,18 +98,18 @@ const NewItemMenu = ({
       });
     }
 
-    if (hasDataAccess) {
-      items.push({
-        title: t`Metric`,
-        icon: "metric",
-        link: Urls.newQuestion({
-          mode: "query",
-          cardType: "metric",
-          collectionId,
-        }),
-        onClose: onCloseNavbar,
-      });
-    }
+    // if (hasDataAccess) {
+    //   items.push({
+    //     title: t`Metric`,
+    //     icon: "metric",
+    //     link: Urls.newQuestion({
+    //       mode: "query",
+    //       cardType: "metric",
+    //       collectionId,
+    //     }),
+    //     onClose: onCloseNavbar,
+    //   });
+    // }
 
     return items;
   }, [

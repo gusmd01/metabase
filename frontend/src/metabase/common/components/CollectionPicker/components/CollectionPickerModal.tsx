@@ -95,6 +95,7 @@ export const CollectionPickerModal = ({
     ? [
         <Button
           key="collection-on-the-go"
+          className="dashedBorder"
           miw="21rem"
           onClick={openCreateDialog}
           leftIcon={<Icon name="add" />}

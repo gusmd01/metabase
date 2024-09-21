@@ -51,14 +51,16 @@ export const ResultItem = ({
       data-testid="result-item"
     >
       <Flex gap="md" miw="10rem" align="center" style={{ flex: 1 }}>
-        <FixedSizeIcon
-          color={color(icon.color ?? (isSelected ? "text-white" : "brand"))}
-          name={icon.name}
-          style={{
-            flexShrink: 0,
-          }}
-        />
-        <Ellipsified style={{ fontWeight: "bold" }}>
+        <div className="iconCon">
+          <FixedSizeIcon
+            color={color(icon.color ?? (isSelected ? "text-white" : "brand"))}
+            name={icon.name}
+            style={{
+              flexShrink: 0,
+            }}
+          />
+        </div>
+        <Ellipsified style={{ fontWeight: "bold" }} className="icon-text">
           {getName(item)}
         </Ellipsified>
         {item.description && (

@@ -1,11 +1,8 @@
-import cx from "classnames";
-import { t } from "ttag";
-
-import IconButtonWrapper from "metabase/components/IconButtonWrapper";
-import CS from "metabase/css/core/index.css";
-import { Flex, Icon } from "metabase/ui";
+import { Flex } from "metabase/ui";
 
 import type { NotebookStepHeaderProps } from "../../../types";
+
+import { StyledCon, Text } from "./NotebookStepHeader.styled";
 
 export function NotebookStepHeader({
   title,
@@ -14,20 +11,14 @@ export function NotebookStepHeader({
   onRevert,
 }: NotebookStepHeaderProps) {
   return (
-    <Flex c={color} fw="bold" mb="sm">
-      {title}
+    <Flex c={color} fw="bold" mb="sm" justify={"space-between"}>
+      <StyledCon>{title}</StyledCon>
       {canRevert && (
-        <IconButtonWrapper
-          className={cx(
-            CS.mlAuto,
-            CS.textLight,
-            CS.textMediumHover,
-            CS.hoverChild,
-          )}
-          onClick={onRevert}
-        >
-          <Icon name="close" tooltip={t`Remove`} aria-label={t`Remove step`} />
-        </IconButtonWrapper>
+        <>
+          <Text onClick={onRevert}>
+            <div>Cancel</div>
+          </Text>
+        </>
       )}
     </Flex>
   );

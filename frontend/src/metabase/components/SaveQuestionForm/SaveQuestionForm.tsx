@@ -13,6 +13,7 @@ import CS from "metabase/css/core/index.css";
 import { Form } from "metabase/forms";
 import { DEFAULT_MODAL_Z_INDEX } from "metabase/ui";
 
+import { FormDataWrapper } from "./SaveQuestionForm.styled";
 import { useSaveQuestionContext } from "./context";
 import type { SaveQuestionFormProps } from "./types";
 
@@ -39,7 +40,7 @@ export const SaveQuestionForm = ({ onCancel }: SaveQuestionFormProps) => {
         />
       )}
       {values.saveType === "create" && (
-        <div className={CS.overflowHidden}>
+        <FormDataWrapper className={`${CS.overflowHidden}`}>
           <FormInput
             name="name"
             title={t`Name`}
@@ -55,12 +56,17 @@ export const SaveQuestionForm = ({ onCancel }: SaveQuestionFormProps) => {
             title={t`Which collection should this go in?`}
             zIndex={DEFAULT_MODAL_Z_INDEX + 1}
           />
-        </div>
+        </FormDataWrapper>
       )}
       <FormFooter>
         <FormErrorMessage inline />
-        <Button type="button" onClick={onCancel}>{t`Cancel`}</Button>
+        <Button
+          type="button"
+          className="btn cancel-btn"
+          onClick={onCancel}
+        >{t`Cancel`}</Button>
         <FormSubmitButton
+          className="btn save-btn"
           title={t`Save`}
           data-testid="save-question-button"
           primary

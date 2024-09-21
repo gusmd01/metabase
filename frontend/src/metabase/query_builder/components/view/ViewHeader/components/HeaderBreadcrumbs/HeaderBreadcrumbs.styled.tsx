@@ -20,13 +20,16 @@ export const Container = styled.span<{ variant: string }>`
     ${props =>
       props.variant === "head" &&
       css`
-        font-size: 1.25rem;
+        font-size: 24px;
+        color: #404252;
+        font-weight: 600;
+        margin-top: 10px;
       `}
   }
 `;
 
 const DividerSpan = styled.span`
-  color: var(--mb-color-text-light);
+  color: #404252;
   font-size: 0.8em;
   font-weight: bold;
   padding-left: 0.5em;

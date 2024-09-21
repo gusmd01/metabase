@@ -17,6 +17,7 @@ export const EditorContainer = styled.div<{
   margin: ${space(1)} 0;
   ${inputPadding()};
   transition: border 0.3s linear;
+  align-items: center;
 
   ${({ isFocused }) =>
     isFocused &&
@@ -44,6 +45,8 @@ export const EditorContainer = styled.div<{
 
   .ace_content * {
     font-family: monospace !important;
+    font-size: 14px;
+    font-weight: 400;
   }
 
   .ace_hidpi .ace_content {
@@ -85,9 +88,8 @@ EditorContainer.defaultProps = {
 };
 
 export const EditorEqualsSign = styled.div`
-  font: 12px / normal Monaco, monospace;
-  height: 12px;
-  font-weight: 700;
+  font: 14px / normal Monaco, monospace;
+  font-weight: 400;
   margin: 0 3px 0 ${space(0)};
 `;
 

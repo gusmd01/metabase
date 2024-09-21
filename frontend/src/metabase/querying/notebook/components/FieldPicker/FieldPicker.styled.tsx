@@ -17,6 +17,39 @@ export const ItemIcon = styled(QueryColumnInfoIcon)`
 
 export const ItemList = styled.ul`
   padding: 0.5em;
+
+  .not_selected {
+    .emotion-Checkbox-body {
+      .emotion-Checkbox-inner {
+        input {
+          &[checked] {
+            border-color: #ddd;
+
+            &:after {
+              border-color: #ddd;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .selected {
+    .emotion-Checkbox-body {
+      .emotion-Checkbox-inner {
+        input {
+          &[checked] {
+            background: #e600e5;
+            border-color: #e600e5;
+
+            &:after {
+              border-color: #e600e5;
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const ToggleItem = styled.li`

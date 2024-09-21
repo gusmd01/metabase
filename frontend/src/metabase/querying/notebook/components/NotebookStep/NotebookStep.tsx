@@ -5,7 +5,6 @@ import { t } from "ttag";
 import ExpandingContent from "metabase/components/ExpandingContent";
 import CS from "metabase/css/core/index.css";
 import { useToggle } from "metabase/hooks/use-toggle";
-import { color as c } from "metabase/lib/colors";
 import type { Query } from "metabase-lib";
 
 import type {
@@ -18,7 +17,6 @@ import {
   PreviewButton,
   StepActionsContainer,
   StepBody,
-  StepButtonContainer,
   StepContent,
   StepRoot,
 } from "./NotebookStep.styled";
@@ -65,10 +63,10 @@ export function NotebookStep({
           button: (
             <NotebookActionButton
               key={`actionButton_${title}`}
-              className={cx({
+              className={`${cx({
                 [cx(CS.mr2, CS.mt2)]: isLastStep,
                 [CS.mr1]: !isLastStep,
-              })}
+              })} ${title}_btn ${hasLargeActionButtons ? "large" : "small"}`}
               large={hasLargeActionButtons}
               {...stepUi}
               title={title}
@@ -118,8 +116,15 @@ export function NotebookStep({
           />
         </StepContent>
 
-        <StepBody>
+        <StepBody className={`${title}_step`}>
           <StepContent>
+            {!readOnly && hasPreviewButton && (
+              <PreviewButton
+                onClick={openPreview}
+                data-testid="step-preview-button"
+                className="step_preview"
+              >{t`Preview`}</PreviewButton>
+            )}
             <Step
               step={step}
               query={step.query}
@@ -131,20 +136,6 @@ export function NotebookStep({
               readOnly={readOnly}
             />
           </StepContent>
-          {!readOnly && (
-            <StepButtonContainer>
-              <PreviewButton
-                as={NotebookActionButton}
-                icon="play"
-                title={t`Preview`}
-                color={c("text-light")}
-                transparent
-                hasPreviewButton={hasPreviewButton}
-                onClick={openPreview}
-                data-testid="step-preview-button"
-              />
-            </StepButtonContainer>
-          )}
         </StepBody>
 
         {canPreview && isPreviewOpen && (

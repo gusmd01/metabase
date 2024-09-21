@@ -7,6 +7,8 @@ import * as Lib from "metabase-lib";
 import type { NotebookStepProps } from "../../types";
 import { ClauseStep } from "../ClauseStep";
 
+import { StyledWrapper } from "./BreakoutStep.styled";
+
 export function BreakoutStep({
   query,
   step,
@@ -56,28 +58,31 @@ export function BreakoutStep({
   };
 
   return (
-    <ClauseStep
-      items={breakouts}
-      initialAddText={t`Pick a column to group by`}
-      readOnly={readOnly}
-      color={color}
-      isLastOpened={isLastOpened}
-      renderName={renderBreakoutName}
-      renderPopover={({ item: breakout, index, onClose }) => (
-        <BreakoutPopover
-          query={query}
-          stageIndex={stageIndex}
-          breakout={breakout}
-          breakoutIndex={index}
-          onAddBreakout={handleAddBreakout}
-          onUpdateBreakoutColumn={handleUpdateBreakoutColumn}
-          onClose={onClose}
-        />
-      )}
-      onReorder={handleReorderBreakout}
-      onRemove={handleRemoveBreakout}
-      data-testid="breakout-step"
-    />
+    <StyledWrapper>
+      <ClauseStep
+        items={breakouts}
+        initialAddText={t`Pick a column to group by`}
+        readOnly={readOnly}
+        color={color}
+        isLastOpened={isLastOpened}
+        renderName={renderBreakoutName}
+        renderPopover={({ item: breakout, index, onClose }) => (
+          <BreakoutPopover
+            query={query}
+            stageIndex={stageIndex}
+            breakout={breakout}
+            breakoutIndex={index}
+            onAddBreakout={handleAddBreakout}
+            onUpdateBreakoutColumn={handleUpdateBreakoutColumn}
+            onClose={onClose}
+          />
+        )}
+        onReorder={handleReorderBreakout}
+        onRemove={handleRemoveBreakout}
+        data-testid="breakout-step"
+        className={"dashedBorder metrics"}
+      />
+    </StyledWrapper>
   );
 }
 
@@ -140,6 +145,7 @@ const BreakoutPopover = ({
         }
       }}
       onClose={onClose}
+      className="summerize-column-picker"
     />
   );
 };

@@ -51,7 +51,10 @@ export const AdHocQuestionDescription = ({
 
   if (aggregationDescription || breakoutDescription) {
     return (
-      <AggregationAndBreakoutDescription onClick={onClick}>
+      <AggregationAndBreakoutDescription
+        onClick={onClick}
+        className="source_label"
+      >
         {[aggregationDescription, breakoutDescription]
           .filter(Boolean)
           .join(t` by `)}

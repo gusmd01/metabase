@@ -100,6 +100,7 @@ export const AccordionListCell = ({
             CS.flex,
             CS.alignCenter,
             CS.hoverParent,
+            "item-head",
             {
               [ListS.ListSectionHeaderCursor]: hasCursor,
               [CS.cursorPointer]: canToggleSections,
@@ -164,6 +165,7 @@ export const AccordionListCell = ({
           CS.alignCenter,
           CS.hoverParent,
           styles.action,
+          "item-head",
           {
             "List-section-header--cursor": hasCursor,
             [CS.cursorPointer]: canToggleSections,
@@ -263,6 +265,7 @@ export const AccordionListCell = ({
             [CS.mb1]: isLastItem,
           },
           getItemClassName(item, itemIndex),
+          "list-item-con",
         )}
         style={getItemStyles(item, itemIndex)}
       >
