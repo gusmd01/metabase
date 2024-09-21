@@ -20,11 +20,13 @@ export const RecentsTab = <
   onItemSelect,
   selectedItem,
   isLoading,
+  dataClassName,
 }: {
   recentItems: RecentItem[] | null;
   onItemSelect: (item: Item) => void;
   selectedItem: Item | null;
   isLoading: boolean;
+  dataClassName?: string;
 }) => {
   if (isLoading || !recentItems) {
     return <SearchLoadingSpinner />;
@@ -39,6 +41,7 @@ export const RecentsTab = <
           isSelectedItem={item =>
             isSelectedItem(item as unknown as Item, selectedItem)
           }
+          dataClassName={dataClassName}
         />
       ) : (
         <Flex direction="column" justify="center" h="100%">

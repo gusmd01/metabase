@@ -76,6 +76,7 @@ export function ColumnInput({
           onClose={handleClose}
           checkIsColumnSelected={item => item.column === value}
           width="100%"
+          className="summerize-column-picker"
         />
       </div>
     </FocusTrap>

@@ -30,6 +30,7 @@ import {
   ColumnPickerHeaderContainer,
   ColumnPickerHeaderTitle,
   ColumnPickerHeaderTitleContainer,
+  StyledAccordionContainer,
 } from "./AggregationPicker.styled";
 
 interface AggregationPickerProps {
@@ -330,6 +331,7 @@ export function AggregationPicker({
           checkIsColumnSelected={checkIsColumnSelected}
           onSelect={handleColumnSelect}
           onClose={onClose}
+          className="summerize-column-picker"
         />
       </ColumnPickerContainer>
     );
@@ -337,21 +339,23 @@ export function AggregationPicker({
 
   return (
     <Box className={className} c="summarize">
-      <AccordionList
-        sections={sections}
-        onChange={handleChange}
-        onChangeSection={handleSectionChange}
-        itemIsSelected={checkIsItemSelected}
-        renderItemName={renderItemName}
-        renderItemDescription={omitItemDescription}
-        renderItemExtra={renderItemIcon}
-        renderItemWrapper={renderItemWrapper}
-        // disable scrollbars inside the list
-        style={{ overflow: "visible" }}
-        maxHeight={Infinity}
-        withBorders
-        globalSearch
-      />
+      <StyledAccordionContainer className={className}>
+        <AccordionList
+          sections={sections}
+          onChange={handleChange}
+          onChangeSection={handleSectionChange}
+          itemIsSelected={checkIsItemSelected}
+          renderItemName={renderItemName}
+          renderItemDescription={omitItemDescription}
+          renderItemExtra={renderItemIcon}
+          renderItemWrapper={renderItemWrapper}
+          // disable scrollbars inside the list
+          style={{ overflow: "visible" }}
+          maxHeight={Infinity}
+          withBorders
+          globalSearch
+        />
+      </StyledAccordionContainer>
     </Box>
   );
 }

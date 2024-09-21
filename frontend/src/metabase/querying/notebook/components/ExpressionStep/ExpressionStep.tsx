@@ -94,7 +94,8 @@ export const ExpressionStep = ({
         isLastOpened={isLastOpened}
         onReorder={handleReorderExpression}
         onRemove={handleRemoveExpression}
-        className={"custom-column"}
+        className={"custom-column dashedBorder"}
+        iconlabelText="+ Add custom column"
       />
     </StyledWrapper>
   );

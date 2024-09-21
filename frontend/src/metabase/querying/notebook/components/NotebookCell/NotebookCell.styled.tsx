@@ -50,6 +50,12 @@ export const NotebookCellItemContainer = styled.div<{
     color: #000;
     border: 1px dashed #000;
     font-weight: 400;
+    height: 36px;
+    overflow: hidden;
+
+    .iconCon {
+      display: flex;
+    }
   }
 `;
 

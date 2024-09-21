@@ -26,6 +26,12 @@ export const StepContent = styled.div`
 export const StepBody = styled.div`
   display: flex;
   align-items: center;
+
+  &.Data_step {
+    .step_preview {
+      right: 0;
+    }
+  }
 `;
 
 export const StepButtonContainer = styled.div`
@@ -34,6 +40,24 @@ export const StepButtonContainer = styled.div`
 
 export const StepActionsContainer = styled.div`
   margin-top: 0.5rem;
+
+  .Filter_btn {
+    background: #f3edff;
+  }
+
+  .Summarize_btn {
+    background: #fff5eb;
+  }
+
+  .Sort_btn,
+  .column_btn,
+  .limit_btn {
+    background: #f9f9f9;
+  }
+
+  .large {
+    border-radius: 16px;
+  }
 `;
 
 interface ColorButtonProps {
@@ -65,7 +89,7 @@ interface PreviewButtonProps {
 export const PreviewButton = styled.div<PreviewButtonProps>`
   margin-left: 0.5rem;
   position: absolute;
-  right: 0;
+  right: 65px;
   font-size: 14px;
   font-weight: 500;
   text-decoration: underline;

@@ -63,10 +63,10 @@ export function NotebookStep({
           button: (
             <NotebookActionButton
               key={`actionButton_${title}`}
-              className={cx({
+              className={`${cx({
                 [cx(CS.mr2, CS.mt2)]: isLastStep,
                 [CS.mr1]: !isLastStep,
-              })}
+              })} ${title}_btn ${hasLargeActionButtons ? "large" : "small"}`}
               large={hasLargeActionButtons}
               {...stepUi}
               title={title}
@@ -116,12 +116,13 @@ export function NotebookStep({
           />
         </StepContent>
 
-        <StepBody>
+        <StepBody className={`${title}_step`}>
           <StepContent>
             {!readOnly && hasPreviewButton && (
               <PreviewButton
                 onClick={openPreview}
                 data-testid="step-preview-button"
+                className="step_preview"
               >{t`Preview`}</PreviewButton>
             )}
             <Step

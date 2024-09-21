@@ -17,6 +17,7 @@ export interface FilterPickerProps {
 
   onSelect: (filter: Lib.Filterable) => void;
   onClose?: () => void;
+  className?: string;
 }
 
 export function FilterPicker({
@@ -26,6 +27,7 @@ export function FilterPicker({
   filterIndex,
   onSelect,
   onClose,
+  className,
 }: FilterPickerProps) {
   const [filter, setFilter] = useState(initialFilter);
 
@@ -96,6 +98,7 @@ export function FilterPicker({
         onColumnSelect={handleColumnSelect}
         onSegmentSelect={handleChange}
         onExpressionSelect={openExpressionEditor}
+        className={className}
       />
     );
   }

@@ -130,6 +130,7 @@ function FilterPopover({
         }
       }}
       onClose={onClose}
+      className="filter-column-picker"
     />
   );
 }

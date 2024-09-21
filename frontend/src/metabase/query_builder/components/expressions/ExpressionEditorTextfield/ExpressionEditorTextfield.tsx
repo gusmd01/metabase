@@ -759,7 +759,7 @@ class ExpressionEditorTextfield extends React.Component<
               focus={true}
               highlightActiveLine={false}
               wrapEnabled={true}
-              fontSize={12}
+              fontSize={14}
               onBlur={this.handleInputBlur}
               onFocus={this.handleFocus}
               setOptions={ACE_OPTIONS}

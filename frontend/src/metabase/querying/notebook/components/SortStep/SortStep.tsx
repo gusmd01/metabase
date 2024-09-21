@@ -87,7 +87,8 @@ export function SortStep({
         )}
         onReorder={handleReorderOrderBy}
         onRemove={handleRemoveOrderBy}
-        className="sort"
+        className="sort dashedBorder"
+        iconlabelText="+ Add Sort"
       />
     </StyledWrapper>
   );
@@ -144,6 +145,7 @@ const SortPopover = ({
         }
       }}
       onClose={onClose}
+      className="summerize-column-picker"
     />
   );
 };

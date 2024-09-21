@@ -7,7 +7,6 @@ import _ from "underscore";
 import QuestionResultLoader from "metabase/containers/QuestionResultLoader";
 import Button from "metabase/core/components/Button";
 import CS from "metabase/css/core/index.css";
-import { Icon } from "metabase/ui";
 import Visualization from "metabase/visualizations/components/Visualization";
 import * as Lib from "metabase-lib";
 import Question from "metabase-lib/v1/Question";
@@ -15,8 +14,8 @@ import Question from "metabase-lib/v1/Question";
 import {
   PreviewButtonContainer,
   PreviewHeader,
-  PreviewIconContainer,
   PreviewRoot,
+  Text,
 } from "./NotebookStepPreview.styled";
 
 const PREVIEW_ROWS_LIMIT = 10;
@@ -51,9 +50,12 @@ export const NotebookStepPreview = ({ step, onClose }) => {
   return (
     <PreviewRoot data-testid="preview-root">
       <PreviewHeader>
-        <span className={CS.textBold}>{t`Preview`}</span>
-        <PreviewIconContainer>
-          <Icon
+        <span className={"header"}>{t`Preview`}</span>
+        {/* <PreviewIconContainer> */}
+        <Text onClick={onClose}>
+          <div>Cancel</div>
+        </Text>
+        {/* <Icon
             name="close"
             onClick={onClose}
             className={cx(
@@ -62,8 +64,8 @@ export const NotebookStepPreview = ({ step, onClose }) => {
               CS.cursorPointer,
               CS.ml1,
             )}
-          />
-        </PreviewIconContainer>
+          /> */}
+        {/* </PreviewIconContainer> */}
       </PreviewHeader>
       {isDirty ? (
         <PreviewButtonContainer

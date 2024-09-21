@@ -60,6 +60,16 @@ export const QueryBuilderViewHeaderContainer = styled.div`
   background-color: var(--mb-color-bg-white);
   position: relative;
   z-index: 3;
+
+  .new_view_header {
+    top: 10px;
+
+    > div {
+      font-size: 24px;
+      font-weight: 600;
+      color: #404252;
+    }
+  }
 `;
 
 export const NativeQueryEditorContainer = styled.div`

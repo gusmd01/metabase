@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { t } from "ttag";
 
-import CS from "metabase/css/core/index.css";
 import { isNotNull } from "metabase/lib/types";
 import { Button, TextInput } from "metabase/ui";
 import * as Lib from "metabase-lib";
@@ -234,9 +233,6 @@ export const ExpressionWidget = <Clause extends object = Lib.ExpressionClause>(
         <FieldWrapper>
           <FieldLabel htmlFor="expression-name">{t`Name`}</FieldLabel>
           <TextInput
-            classNames={{
-              input: CS.textBold,
-            }}
             id="expression-name"
             data-testid="expression-name"
             type="text"
@@ -256,8 +252,14 @@ export const ExpressionWidget = <Clause extends object = Lib.ExpressionClause>(
 
       <Footer>
         <ActionButtonsWrapper>
-          {onClose && <Button onClick={onClose}>{t`Cancel`}</Button>}
+          {onClose && (
+            <Button
+              className="cancel_btn"
+              onClick={onClose}
+            >{t`Cancel`}</Button>
+          )}
           <Button
+            className="done_btn"
             variant={isValid ? "filled" : "default"}
             disabled={!isValid}
             onClick={() => handleCommit(expression, clause)}

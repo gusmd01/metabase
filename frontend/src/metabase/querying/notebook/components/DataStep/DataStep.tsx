@@ -72,6 +72,8 @@ export const DataStep = ({
             table={table}
             hasMetrics
             onChange={handleTableChange}
+            className={"data-pick-modal"}
+            dataClassName={"tabs-data"}
           />
         </NotebookCellItem>
       </NotebookCell>

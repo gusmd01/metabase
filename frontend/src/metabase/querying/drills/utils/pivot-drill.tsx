@@ -99,6 +99,7 @@ function getColumnPopover(
             onChangeCardAndRun({ nextCard });
           }}
           onClose={onClose}
+          className="summerize-column-picker"
         />
       </Box>
     );

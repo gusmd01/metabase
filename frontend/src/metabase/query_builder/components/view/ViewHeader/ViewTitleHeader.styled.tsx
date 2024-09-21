@@ -44,9 +44,18 @@ export const ViewHeaderLeftSubHeading = styled(ViewSubHeading)`
 `;
 
 export const AdHocViewHeading = styled(ViewHeading)`
-  margin-bottom: ${space(0)};
-  margin-top: ${space(0)};
+  margin-bottom: 0;
+  margin-top: 0;
   margin-right: ${space(2)};
+
+  > div[color="medium"] {
+    font-size: 15px;
+  }
+
+  .source_label {
+    font-weight: 600;
+    font-size: 15px;
+  }
 `;
 
 export const BackButton = styled(Button)`

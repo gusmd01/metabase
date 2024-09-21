@@ -42,6 +42,8 @@ interface Props {
   models?: DataPickerValue["model"][];
   onChange: (value: TableId) => void;
   onClose: () => void;
+  className?: string;
+  dataClassName?: string;
 }
 
 const QUESTION_PICKER_MODELS: CollectionItemModel[] = ["card"];
@@ -65,6 +67,8 @@ export const DataPickerModal = ({
   models = ["table", "card", "dataset"],
   onChange,
   onClose,
+  className,
+  dataClassName,
 }: Props) => {
   const hasNestedQueriesEnabled = useSetting("enable-nested-queries");
   const { hasQuestions, hasModels, hasMetrics } = useAvailableData({
@@ -210,6 +214,8 @@ export const DataPickerModal = ({
       onClose={onClose}
       onItemSelect={handleChange}
       recentsContext={["selections"]}
+      className={className}
+      dataClassName={dataClassName}
     />
   );
 };

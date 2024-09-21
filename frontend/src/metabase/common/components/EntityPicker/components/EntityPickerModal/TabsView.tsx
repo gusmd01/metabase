@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { Icon, Tabs } from "metabase/ui";
+import { Tabs } from "metabase/ui";
 import type {
   SearchRequest,
   SearchResult,
@@ -110,13 +110,12 @@ export const TabsView = <
     >
       <Tabs.List px="1rem">
         {tabs.map(tab => {
-          const { model, icon, displayName } = tab;
+          const { model, displayName } = tab;
 
           return (
             <Tabs.Tab
               key={model}
               value={model}
-              icon={<Icon name={icon} />}
               onClick={() => setSelectedTab(model)}
             >
               {displayName}

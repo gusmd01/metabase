@@ -1,6 +1,5 @@
 import { forwardRef, isValidElement } from "react";
 
-import CS from "metabase/css/core/index.css";
 import { Icon } from "metabase/ui";
 
 import type { BorderSide } from "./NotebookCell.styled";
@@ -93,13 +92,19 @@ export const NotebookCellItem = forwardRef<
 
 interface NotebookCellAddProps extends NotebookCellItemProps {
   initialAddText?: React.ReactNode;
+  iconlabelText?: string;
 }
 
 export const NotebookCellAdd = forwardRef<HTMLDivElement, NotebookCellAddProps>(
-  function NotebookCellAdd({ initialAddText, ...props }, ref) {
+  function NotebookCellAdd({ initialAddText, iconlabelText, ...props }, ref) {
     return (
       <NotebookCellItem {...props} inactive={!!initialAddText} ref={ref}>
-        {initialAddText || <Icon name="add" className={CS.textWhite} />}
+        {initialAddText || (
+          <div className="iconCon">
+            {!iconlabelText && <Icon name="add" />}
+            {iconlabelText && <div className="icon_label">{iconlabelText}</div>}
+          </div>
+        )}
       </NotebookCellItem>
     );
   },

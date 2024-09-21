@@ -13,4 +13,17 @@ export const StyledWrapper = styled.div`
   .sort-wrapper {
     background: #f0f2f5;
   }
+
+  .sort.dashedBorder {
+    border-color: #000;
+
+    > div {
+      background: #fff;
+    }
+
+    .icon_label {
+      color: #000;
+      font-weight: 400;
+    }
+  }
 `;

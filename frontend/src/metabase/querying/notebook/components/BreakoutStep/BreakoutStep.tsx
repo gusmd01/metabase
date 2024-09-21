@@ -145,6 +145,7 @@ const BreakoutPopover = ({
         }
       }}
       onClose={onClose}
+      className="summerize-column-picker"
     />
   );
 };

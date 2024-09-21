@@ -15,11 +15,12 @@ export function GroupedRecentsList({
   items: RecentItem[];
   onItemSelect: (item: RecentItem) => void;
   isSelectedItem: (item: RecentItem) => boolean;
+  dataClassName?: string;
 }) {
   const recentGroups = useMemo(() => getRecentGroups(items), [items]);
 
   return (
-    <Box style={{ overflowY: "auto" }} p="xl">
+    <Box style={{ overflowY: "auto" }} p="xl" className="dataClassName">
       {recentGroups.map(group => (
         <RecentSection
           key={group.title}
@@ -43,6 +44,7 @@ function RecentSection({
   items: RecentItem[];
   onItemSelect: (item: RecentItem) => void;
   isSelectedItem: (item: RecentItem) => boolean;
+  dataClassName?: string;
 }) {
   if (!items?.length) {
     return null;
@@ -52,7 +54,7 @@ function RecentSection({
       <Text fw="bold" color="text-light" mb="sm" pl="xs">
         {title}
       </Text>
-      <ChunkyList>
+      <ChunkyList className="tab-data-listCon">
         {items.map((item, index) => (
           <ResultItem
             key={item.model + item.id}

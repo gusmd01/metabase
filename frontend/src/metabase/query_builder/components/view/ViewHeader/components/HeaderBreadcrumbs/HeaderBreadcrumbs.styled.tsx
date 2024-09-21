@@ -23,6 +23,7 @@ export const Container = styled.span<{ variant: string }>`
         font-size: 24px;
         color: #404252;
         font-weight: 600;
+        margin-top: 10px;
       `}
   }
 `;

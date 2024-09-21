@@ -17,11 +17,11 @@ export const ExpressionFieldWrapper = styled.div`
 export const FieldLabel = styled.label`
   display: flex;
   margin-bottom: 0.5rem;
-  font-weight: 700;
-  font-size: 0.83em;
+  font-weight: 500;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--mb-color-text-light);
+  color: #333;
 `;
 
 export const Footer = styled.div`
@@ -40,4 +40,20 @@ export const ActionButtonsWrapper = styled.div`
   margin-left: auto;
   display: flex;
   gap: 1rem;
+
+  button {
+    border-radius: 30px;
+    width: 100px;
+    font-weight: 400;
+  }
+
+  .cancel_btn {
+    border-color: #000;
+  }
+
+  .done_btn {
+    background: #101223;
+    color: #fff;
+    border: 1px solid #101223;
+  }
 `;

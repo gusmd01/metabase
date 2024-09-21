@@ -15,6 +15,8 @@ import type { CollectionId } from "metabase-types/api";
 import { ENTITY_PICKER_Z_INDEX } from "../../EntityPicker";
 import type { CollectionPickerItem } from "../types";
 
+import { StyledContainer } from "./NewCollectionDialog.styled";
+
 interface NewCollectionDialogProps {
   isOpen: boolean;
   onClose: () => void;
@@ -44,44 +46,71 @@ export const NewCollectionDialog = ({
   };
 
   return (
-    <Modal
-      title={t`Create a new collection`}
-      opened={isOpen}
+    <Modal.Root
       onClose={onClose}
+      opened={isOpen}
       data-testid="create-collection-on-the-go"
       trapFocus={true}
-      withCloseButton={false}
+      className="data-pick-modal"
       zIndex={ENTITY_PICKER_Z_INDEX}
     >
-      <FormProvider
-        initialValues={{ name: "" }}
-        onSubmit={onCreateNewCollection}
-      >
-        {({ dirty }: { dirty: boolean }) => (
-          <Form>
-            <FormTextInput
-              name="name"
-              label={t`Give it a name`}
-              placeholder={t`My new collection`}
-              mb="1rem"
-              labelProps={{ my: "0.5rem" }}
-              data-autofocus
-            />
-            <FormFooter>
-              <FormErrorMessage inline />
-              <Flex style={{ flexShrink: 1 }} justify="flex-end" gap="sm">
-                <Button type="button" onClick={onClose}>{t`Cancel`}</Button>
-                <FormSubmitButton
-                  type="submit"
-                  label={t`Create`}
-                  disabled={!dirty}
-                  variant="filled"
-                />
-              </Flex>
-            </FormFooter>
-          </Form>
-        )}
-      </FormProvider>
-    </Modal>
+      <Modal.Content data-testid="save-question-modal">
+        <Modal.Header
+          mb={20}
+          style={{
+            background: "#F9F9F9",
+            fontWeight: 500,
+            padding: "28px 40px",
+          }}
+        >
+          <Modal.Title
+            style={{ fontWeight: 500, fontSize: 20, color: "#101223" }}
+          >
+            {t`Create a new collection`}
+          </Modal.Title>
+          <Flex align="center" justify="flex-end" gap="sm">
+            <Modal.CloseButton size={24} style={{ color: "#000" }} />
+          </Flex>
+        </Modal.Header>
+        <Modal.Body>
+          <StyledContainer>
+            <FormProvider
+              initialValues={{ name: "" }}
+              onSubmit={onCreateNewCollection}
+            >
+              {({ dirty }: { dirty: boolean }) => (
+                <Form>
+                  <FormTextInput
+                    name="name"
+                    label={t`Give it a name`}
+                    placeholder={t`My new collection`}
+                    mb="1rem"
+                    labelProps={{ my: "0.5rem" }}
+                    data-autofocus
+                  />
+                  <FormFooter>
+                    <FormErrorMessage inline />
+                    <Flex style={{ flexShrink: 1 }} justify="flex-end" gap="sm">
+                      <Button
+                        type="button"
+                        onClick={onClose}
+                        className="btn"
+                      >{t`Cancel`}</Button>
+                      <FormSubmitButton
+                        type="submit"
+                        label={t`Create`}
+                        disabled={!dirty}
+                        variant="filled"
+                        className="btn save-btn"
+                      />
+                    </Flex>
+                  </FormFooter>
+                </Form>
+              )}
+            </FormProvider>
+          </StyledContainer>
+        </Modal.Body>
+      </Modal.Content>
+    </Modal.Root>
   );
 };

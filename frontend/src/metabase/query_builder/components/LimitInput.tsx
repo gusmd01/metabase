@@ -5,7 +5,7 @@ import ButtonsS from "metabase/css/components/buttons.module.css";
 import CS from "metabase/css/core/index.css";
 
 const DEFAULT_STYLE = {
-  borderWidth: 2,
+  borderWidth: 1,
 };
 
 interface LimitInputProps extends React.InputHTMLAttributes<HTMLInputElement> {

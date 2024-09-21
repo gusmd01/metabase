@@ -107,6 +107,7 @@ function AggregationPopover({
       operators={operators}
       onQueryChange={onQueryChange}
       onClose={onClose}
+      className="summerize-column-picker"
     />
   );
 }

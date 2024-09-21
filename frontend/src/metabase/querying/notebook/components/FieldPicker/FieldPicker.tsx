@@ -78,6 +78,7 @@ export const FieldPicker = ({
             checked={isAll}
             indeterminate={!isAll && !isNone}
             onChange={handleLabelToggle}
+            className={isAll ? "selected" : "not_selected"}
           />
           <ItemTitle>{isAll ? t`Select none` : t`Select all`}</ItemTitle>
         </Label>
@@ -90,6 +91,7 @@ export const FieldPicker = ({
                 checked={item.isSelected}
                 disabled={item.isDisabled}
                 onChange={event => onToggle(item.column, event.target.checked)}
+                className={item.isSelected ? "selected" : "not_selected"}
               />
               <ItemIcon
                 query={query}

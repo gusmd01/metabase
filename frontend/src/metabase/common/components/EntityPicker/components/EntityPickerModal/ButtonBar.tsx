@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { t } from "ttag";
 
+import FormFooter from "metabase/core/components/FormFooter";
 import { Button, Flex, Text } from "metabase/ui";
 
 export const ButtonBar = ({
@@ -47,25 +48,28 @@ export const ButtonBar = ({
         </Text>
       )}
       <Flex gap="md">
-        <Button onClick={onCancel} type="button">
-          {cancelButtonText ?? t`Cancel`}
-        </Button>
-        <Button
-          ml={1}
-          variant="filled"
-          onClick={async () => {
-            try {
-              setError(null);
-              await onConfirm();
-            } catch (e: any) {
-              console.error(e);
-              setError(e?.data?.message ?? t`An error occurred`);
-            }
-          }}
-          disabled={!canConfirm}
-        >
-          {confirmButtonText ?? t`Select`}
-        </Button>
+        <FormFooter>
+          <Button onClick={onCancel} type="button" className="btn">
+            {cancelButtonText ?? t`Cancel`}
+          </Button>
+          <Button
+            ml={1}
+            variant="filled"
+            className="btn save-btn"
+            onClick={async () => {
+              try {
+                setError(null);
+                await onConfirm();
+              } catch (e: any) {
+                console.error(e);
+                setError(e?.data?.message ?? t`An error occurred`);
+              }
+            }}
+            disabled={!canConfirm}
+          >
+            {confirmButtonText ?? t`Select`}
+          </Button>
+        </FormFooter>
       </Flex>
     </Flex>
   );

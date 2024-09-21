@@ -70,6 +70,8 @@ export interface EntityPickerModalProps<Model extends string, Item> {
   defaultToRecentTab?: boolean;
   /**recentsContext: Defaults to returning recents based off both views and selections. Can be overridden by props */
   recentsContext?: RecentContexts[];
+  className?: string;
+  dataClassName?: string;
 }
 
 export function EntityPickerModal<
@@ -93,6 +95,7 @@ export function EntityPickerModal<
   searchParams,
   defaultToRecentTab = true,
   recentsContext = ["selections", "views"],
+  dataClassName,
 }: EntityPickerModalProps<Model, Item>) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const { data: recentItems, isLoading: isLoadingRecentItems } =
@@ -149,6 +152,7 @@ export function EntityPickerModal<
                   recentItems={filteredRecents}
                   onItemSelect={onItemSelect}
                   selectedItem={selectedItem}
+                  dataClassName={dataClassName}
                 />
               ),
             },
@@ -162,6 +166,7 @@ export function EntityPickerModal<
       isLoadingRecentItems,
       hydratedOptions.hasRecents,
       filteredRecents,
+      dataClassName,
     ],
   );
 
@@ -197,7 +202,7 @@ export function EntityPickerModal<
       zIndex={ENTITY_PICKER_Z_INDEX} // needs to be above popovers and bulk actions
     >
       <Modal.Overlay />
-      <ModalContent h="100%">
+      <ModalContent className="data-pick-modal" h="100%">
         <Modal.Header
           px="1.5rem"
           pt="1rem"
