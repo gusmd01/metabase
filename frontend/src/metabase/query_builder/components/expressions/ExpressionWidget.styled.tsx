@@ -55,5 +55,9 @@ export const ActionButtonsWrapper = styled.div`
     background: #101223;
     color: #fff;
     border: 1px solid #101223;
+
+    &[disabled] {
+      opacity: 0.5;
+    }
   }
 `;

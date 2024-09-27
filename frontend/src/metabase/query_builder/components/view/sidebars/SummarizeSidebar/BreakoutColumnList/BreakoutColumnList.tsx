@@ -8,7 +8,11 @@ import { SEARCH_DEBOUNCE_DURATION } from "metabase/lib/constants";
 import { DelayGroup } from "metabase/ui";
 import * as Lib from "metabase-lib";
 
-import { ColumnGroupName, SearchContainer } from "./BreakoutColumnList.styled";
+import {
+  ColumnGroupName,
+  ListStyledWrapper,
+  SearchContainer,
+} from "./BreakoutColumnList.styled";
 import { BreakoutColumnListItem } from "./BreakoutColumnListItem";
 
 export interface BreakoutColumnListProps {
@@ -136,30 +140,32 @@ export function BreakoutColumnList({
           </ul>
         </DelayGroup>
       )}
-      <DelayGroup>
-        <ul data-testid="unpinned-dimensions">
-          {sections.map(section => (
-            <li key={section.name}>
-              <ColumnGroupName>{section.name}</ColumnGroupName>
-              <ul>
-                {section.items.map((item, itemIndex) => (
-                  <BreakoutColumnListItem
-                    key={itemIndex}
-                    query={query}
-                    stageIndex={stageIndex}
-                    item={item}
-                    breakout={item.breakout}
-                    onAddBreakout={onAddBreakout}
-                    onUpdateBreakout={onUpdateBreakout}
-                    onRemoveBreakout={onRemoveBreakout}
-                    onReplaceBreakouts={handleReplaceBreakouts}
-                  />
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </DelayGroup>
+      <ListStyledWrapper>
+        <DelayGroup>
+          <ul data-testid="unpinned-dimensions">
+            {sections.map(section => (
+              <li key={section.name}>
+                <ColumnGroupName>{section.name}</ColumnGroupName>
+                <ul>
+                  {section.items.map((item, itemIndex) => (
+                    <BreakoutColumnListItem
+                      key={itemIndex}
+                      query={query}
+                      stageIndex={stageIndex}
+                      item={item}
+                      breakout={item.breakout}
+                      onAddBreakout={onAddBreakout}
+                      onUpdateBreakout={onUpdateBreakout}
+                      onRemoveBreakout={onRemoveBreakout}
+                      onReplaceBreakouts={handleReplaceBreakouts}
+                    />
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </DelayGroup>
+      </ListStyledWrapper>
     </>
   );
 }

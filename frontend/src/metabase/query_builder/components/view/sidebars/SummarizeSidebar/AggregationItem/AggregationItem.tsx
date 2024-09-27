@@ -56,6 +56,7 @@ export function AggregationItem({
           operators={operators}
           hasExpressionInput={false}
           onQueryChange={onQueryChange}
+          className="filter-column-picker"
         />
       </Popover.Dropdown>
     </Popover>

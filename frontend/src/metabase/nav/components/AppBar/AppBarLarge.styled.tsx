@@ -32,6 +32,12 @@ export const AppBarRightContainer = styled.div`
   gap: 1rem;
   max-width: 32.5rem;
   justify-content: end;
+
+  button {
+    font-size: 12px;
+    font-family: Poppins;
+    height: 36px;
+  }
 `;
 
 export interface AppBarInfoContainerProps {

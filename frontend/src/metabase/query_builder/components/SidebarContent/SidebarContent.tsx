@@ -31,13 +31,12 @@ function SidebarContent({
   className,
   title,
   icon,
-  color,
   onBack,
   onClose,
   onDone,
   doneButtonText = t`Done`,
   footer = onDone ? (
-    <FooterButton color={color} onClick={onDone}>
+    <FooterButton color={"#101223"} onClick={onDone}>
       {doneButtonText}
     </FooterButton>
   ) : null,

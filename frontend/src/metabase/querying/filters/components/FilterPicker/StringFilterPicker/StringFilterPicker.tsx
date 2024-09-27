@@ -16,6 +16,8 @@ import { FilterPickerHeader } from "../FilterPickerHeader";
 import { MAX_WIDTH, MIN_WIDTH } from "../constants";
 import type { FilterPickerWidgetProps } from "../types";
 
+import { StyledContainer } from "./StringFilterPicker.styled";
+
 export function StringFilterPicker({
   query,
   stageIndex,
@@ -71,34 +73,38 @@ export function StringFilterPicker({
       data-testid="string-filter-picker"
       onSubmit={handleSubmit}
     >
-      <FilterPickerHeader
-        columnName={columnInfo.longDisplayName}
-        onBack={onBack}
-      >
-        <FilterOperatorPicker
-          value={operator}
-          options={availableOptions}
-          onChange={handleOperatorChange}
-        />
-      </FilterPickerHeader>
-      <div>
-        <StringValueInput
-          query={query}
-          stageIndex={stageIndex}
-          column={column}
-          values={values}
-          type={type}
-          onChange={setValues}
-        />
-        <FilterPickerFooter isNew={isNew} canSubmit={isValid}>
-          {type === "partial" && (
-            <CaseSensitiveOption
-              value={options["case-sensitive"] ?? false}
-              onChange={newValue => setOptions({ "case-sensitive": newValue })}
-            />
-          )}
-        </FilterPickerFooter>
-      </div>
+      <StyledContainer>
+        <FilterPickerHeader
+          columnName={columnInfo.longDisplayName}
+          onBack={onBack}
+        >
+          <FilterOperatorPicker
+            value={operator}
+            options={availableOptions}
+            onChange={handleOperatorChange}
+          />
+        </FilterPickerHeader>
+        <div>
+          <StringValueInput
+            query={query}
+            stageIndex={stageIndex}
+            column={column}
+            values={values}
+            type={type}
+            onChange={setValues}
+          />
+          <FilterPickerFooter isNew={isNew} canSubmit={isValid}>
+            {type === "partial" && (
+              <CaseSensitiveOption
+                value={options["case-sensitive"] ?? false}
+                onChange={newValue =>
+                  setOptions({ "case-sensitive": newValue })
+                }
+              />
+            )}
+          </FilterPickerFooter>
+        </div>
+      </StyledContainer>
     </Box>
   );
 }
@@ -167,6 +173,7 @@ function CaseSensitiveOption({ value, onChange }: CaseSensitiveOptionProps) {
         label={t`Case sensitive`}
         checked={value}
         onChange={e => onChange(e.target.checked)}
+        className={value ? "selected" : "not_selected"}
       />
     </Flex>
   );

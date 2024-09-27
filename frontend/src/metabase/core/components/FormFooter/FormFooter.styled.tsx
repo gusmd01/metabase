@@ -23,6 +23,14 @@ const FormFooter = styled.div<FormFooterProps>`
     border-radius: 30px;
     width: 100px;
     font-weight: 400;
+    transition: all 200ms linear;
+
+    &.emotion-UnstyledButton-root:hover,
+    &.cancel-btn:hover {
+      background-color: #dee2e6;
+      border-radius: 30px;
+      box-shadow: none;
+    }
   }
 
   .cancel-btn {
@@ -33,6 +41,16 @@ const FormFooter = styled.div<FormFooterProps>`
     background: #101223;
     color: #fff;
     border: 1px solid #101223;
+    transition: all 200ms linear;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.emotion-UnstyledButton-root:hover {
+      background: #101223;
+      opacity: 0.8;
+    }
 
     &[disabled] {
       opacity: 0.5;

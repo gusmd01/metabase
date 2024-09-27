@@ -59,7 +59,7 @@ export function SummarizeSidebar({
         aggregations={aggregations}
         onQueryChange={handleQueryChange}
       />
-      <Divider my="lg" />
+      <Divider my="md" />
       {hasAggregations && (
         <SummarizeBreakoutColumnList
           px="lg"

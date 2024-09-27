@@ -8,6 +8,8 @@ import type Question from "metabase-lib/v1/Question";
 
 import { NotebookStepList } from "../NotebookStepList";
 
+import { StyledContainer } from "./Notebook.styled";
+
 export type NotebookProps = {
   question: Question;
   isDirty: boolean;
@@ -69,17 +71,23 @@ export const Notebook = ({
 
   return (
     <Box pos="relative" p={{ base: "1rem 0", sm: "2rem 0" }}>
-      <NotebookStepList
-        updateQuestion={handleUpdateQuestion}
-        question={question}
-        reportTimezone={reportTimezone}
-        readOnly={readOnly}
-      />
-      {hasVisualizeButton && isRunnable && (
-        <Button variant="filled" style={{ minWidth: 220 }} onClick={visualize}>
-          {t`Visualize`}
-        </Button>
-      )}
+      <StyledContainer>
+        <NotebookStepList
+          updateQuestion={handleUpdateQuestion}
+          question={question}
+          reportTimezone={reportTimezone}
+          readOnly={readOnly}
+        />
+        {hasVisualizeButton && isRunnable && (
+          <Button
+            variant="filled"
+            style={{ minWidth: 220 }}
+            onClick={visualize}
+          >
+            {t`Visualize`}
+          </Button>
+        )}
+      </StyledContainer>
     </Box>
   );
 };

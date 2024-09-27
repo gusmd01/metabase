@@ -10,8 +10,19 @@ export const SortDirectionButton = styled.button`
 `;
 
 export const StyledWrapper = styled.div`
-  .sort-wrapper {
+  .sort-wrapper,
+  .dashedBorder-wrapper {
     background: #f0f2f5;
+    display: flex;
+    gap: 8px;
+
+    .dnd-step {
+      height: 36px;
+
+      > div {
+        height: 36px;
+      }
+    }
   }
 
   .sort.dashedBorder {

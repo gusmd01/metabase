@@ -177,6 +177,7 @@ function SortDisplayName({
         event.stopPropagation();
         onToggleSortDirection();
       }}
+      className="change_direction"
     >
       <Icon name={icon} />
       <span>{displayInfo.longDisplayName}</span>

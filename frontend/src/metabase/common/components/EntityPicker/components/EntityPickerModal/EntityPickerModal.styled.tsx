@@ -136,6 +136,14 @@ export const ModalContent = styled(Modal.Content)`
             border-radius: 50%;
             height: 40px;
             width: 40px;
+
+            svg {
+              color: #101223;
+            }
+          }
+
+          .Icon-info {
+            color: #101223;
           }
 
           .icon-text {

@@ -17,12 +17,14 @@ export const SidebarContentMain = styled.div`
 export const FooterButton = styled(ViewButton)`
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
   border-radius: 99px;
   box-shadow: 0 2px 2px rgb(0 0 0 / 13%);
+  font-size: 16px;
+  font-weight: 500;
+  width: calc(100% - 55px);
+  padding: 8px;
 `;
 
 FooterButton.defaultProps = {

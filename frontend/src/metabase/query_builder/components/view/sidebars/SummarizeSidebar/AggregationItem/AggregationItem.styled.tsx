@@ -1,24 +1,23 @@
 import styled from "@emotion/styled";
 
-import { alpha } from "metabase/lib/colors";
 import { Icon } from "metabase/ui";
 
 export const Root = styled.button`
   display: flex;
   align-items: center;
-  padding: 0.5rem;
-  font-weight: bold;
-  border-radius: 6px;
+  padding: 4px;
+  font-weight: 500;
+  border-radius: 4px;
   color: var(--mb-color-text-white);
-  background-color: var(--mb-color-summarize);
+  background-color: #101223;
   transition: background 300ms linear, border 300ms linear;
-  min-height: 34px;
-  min-width: 34px;
+  min-height: 32px;
+  min-width: 32px;
   cursor: pointer;
+  font-size: 12px;
 
   &:hover {
-    background-color: ${() => alpha("summarize", 0.8)};
-    border-color: ${() => alpha("summarize", 0.8)};
+    opacity: 0.8;
   }
 `;
 

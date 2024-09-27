@@ -20,7 +20,6 @@ export const ViewSidebarAside = styled.aside<{
           left: 0;
         `
       : css`
-          border-left: ${isOpen ? "1px solid var(--mb-color-border)" : "none"};
           right: 0;
 
           ${breakpointMaxSmall} {

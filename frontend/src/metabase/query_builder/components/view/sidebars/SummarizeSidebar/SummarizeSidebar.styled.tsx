@@ -9,6 +9,10 @@ export const SidebarView = styled(SidebarContent)`
   left: 0;
   right: 0;
   bottom: 0;
+  background: #f0f2f5;
+  border-radius: 16px;
+  margin-top: 5px;
+  height: calc(100% - 5px);
 `;
 
 const Section = styled.section`
@@ -16,8 +20,10 @@ const Section = styled.section`
 `;
 
 export const SectionTitle = styled.h3`
-  font-weight: 900;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #404252;
 `;
 
 export const AggregationsContainer = styled(Section)`

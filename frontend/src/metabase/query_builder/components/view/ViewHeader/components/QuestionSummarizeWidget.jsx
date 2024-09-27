@@ -25,7 +25,10 @@ export function QuestionSummarizeWidget({
         }
       }}
       data-active={isShowingSummarySidebar}
-      className={cx(className, ViewTitleHeaderS.SummarizeButton)}
+      className={`${cx(
+        className,
+        ViewTitleHeaderS.SummarizeButton,
+      )} summarize-btn`}
     >
       {t`Summarize`}
     </Button>

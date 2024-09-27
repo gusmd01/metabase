@@ -339,7 +339,7 @@ export function AggregationPicker({
 
   return (
     <Box className={className} c="summarize">
-      <StyledAccordionContainer className={className}>
+      <StyledAccordionContainer className={`${className} filter-column-picker`}>
         <AccordionList
           sections={sections}
           onChange={handleChange}

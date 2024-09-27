@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Draggable from "react-draggable";
 
 import Button from "metabase/core/components/Button";
-import { alpha, lighten } from "metabase/lib/colors";
+import { lighten } from "metabase/lib/colors";
 import { Box } from "metabase/ui";
 
 import TableS from "./TableInteractive.module.css";
@@ -11,12 +11,9 @@ import { getCellHoverBackground } from "./table-theme-utils";
 
 export const TableInteractiveRoot = styled(Box)`
   .${TableS.TableInteractiveHeaderCellData} .${TableS.cellData} {
-    border: 1px solid ${({ theme }) => alpha(theme.fn.themeColor("brand"), 0.2)};
-  }
-
-  .${TableS.TableInteractiveHeaderCellData} .${TableS.cellData}:hover {
-    border: 1px solid
-      ${({ theme }) => alpha(theme.fn.themeColor("brand"), 0.56)};
+    color: #006db4;
+    font-size: 14px;
+    font-weight: 500;
   }
 
   .${TableS.TableInteractiveCellWrapper}:hover {

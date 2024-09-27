@@ -30,6 +30,7 @@ export const QueryBuilderMain = styled.main<{ isSidebarOpen: boolean }>`
   flex-direction: column;
   flex: 1 0 auto;
   flex-basis: 0;
+  margin-top: 15px;
 
   ${breakpointMaxSmall} {
     ${props =>

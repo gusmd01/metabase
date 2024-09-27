@@ -190,8 +190,50 @@ export const ViewHeaderActionPanel = styled.div`
   margin-left: auto;
   gap: 0.5rem;
   position: relative;
-  top: 2px;
+  top: 1px;
   padding-right: 130px;
+
+  .emotion-UnstyledButton-root:not(.emotion-ActionIcon-root) {
+    font-size: 12px;
+    font-weight: 500;
+    height: 36px;
+
+    &:not([data-testid="qb-save-button"]):hover {
+      background: #f9fbfc;
+      color: #101223;
+    }
+
+    &.filter-btn {
+      background-color: #f3edff;
+      border-color: #f3edff;
+
+      &:hover {
+        background-color: #f3edff;
+        opacity: 0.7;
+      }
+    }
+
+    &.summarize-btn {
+      background-color: #fff5eb;
+      border-color: #fff5eb;
+
+      &:hover {
+        background-color: #fff5eb;
+        opacity: 0.7;
+      }
+
+      &[data-active="true"] {
+        background-color: #ff9b38;
+        border-color: #ff9b38;
+
+        &:hover {
+          background-color: #ff9b38;
+          color: #fff;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
 
   ${breakpointMaxSmall} {
     margin-left: 0;

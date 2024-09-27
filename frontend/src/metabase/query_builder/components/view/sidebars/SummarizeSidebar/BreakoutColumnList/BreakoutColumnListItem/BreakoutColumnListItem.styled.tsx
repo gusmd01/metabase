@@ -64,14 +64,14 @@ export const ColumnTypeIcon = styled(QueryColumnInfoIcon)`
 export const Title = styled.div`
   margin: 0 0.5rem;
   word-break: break-word;
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
 `;
 
 const getSelectedStyle = (theme: Theme) => css`
   ${Content},
   ${ColumnTypeIcon} {
-    background-color: var(--mb-color-summarize);
+    background-color: #ff9b38;
     color: var(--mb-color-text-white);
   }
 
@@ -90,6 +90,8 @@ const unselectedStyle = css`
   ${BucketPickerPopover.TriggerButton} {
     opacity: 0;
     color: var(--mb-color-text-light);
+    font-weight: 500;
+    font-size: 12px;
   }
 
   ${ColumnTypeIcon} {
@@ -100,7 +102,7 @@ const unselectedStyle = css`
     ${Content},
     ${ColumnTypeIcon},
     ${AddButton} {
-      color: var(--mb-color-summarize);
+      color: #101223;
       background-color: var(--mb-color-bg-light);
     }
 
@@ -126,6 +128,16 @@ export const Root = styled.li<{ isSelected: boolean }>`
   margin: 0.25rem 0;
   min-height: 34px;
   position: relative;
+
+  button[data-testid="dimension-list-item-binning"] {
+    color: #bcb6b6;
+  }
+
+  &[aria-selected="true"] {
+    button[data-testid="dimension-list-item-binning"] {
+      color: #fff;
+    }
+  }
 
   ${props =>
     props.isSelected ? getSelectedStyle(props.theme) : unselectedStyle}

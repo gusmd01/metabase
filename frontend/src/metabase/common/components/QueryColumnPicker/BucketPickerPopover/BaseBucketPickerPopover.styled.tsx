@@ -26,10 +26,11 @@ export const TriggerButton = styled.button`
   max-width: 50%;
   gap: 0.5rem;
   color: ${() => alpha(color("text-white"), 0.5)};
-  font-weight: 700;
+  font-weight: 400;
   border-left: 2px solid ${() => alpha(color("border"), 0.1)};
   padding: 0.5rem;
   cursor: pointer;
+  font-size: 12px;
 
   ${ChevronDown} {
     color: currentColor;
@@ -62,6 +63,25 @@ export const Content = styled.div`
 
   ${SelectListItem} {
     margin: 2px 0;
+
+    &[aria-selected="true"] {
+      background: #101223;
+    }
+
+    > div {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    &:hover {
+      background: #fff;
+      color: #4c5773;
+      opacity: 0.7;
+
+      > div {
+        color: #4c5773;
+      }
+    }
   }
 `;
 

@@ -42,6 +42,7 @@ export function AddAggregationButton({
             onClick={() => setIsOpened(!isOpened)}
             aria-label={t`Add aggregation`}
             data-testid="add-aggregation-button"
+            className="add_metric"
           >
             {hasAggregations ? null : t`Add a metric`}
           </AddAggregationButtonRoot>,

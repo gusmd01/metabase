@@ -40,7 +40,7 @@ export function FilterHeaderButton({
     <Button.Group>
       <Button
         color="filter"
-        className={cx(className, ViewTitleHeaderS.FilterButton)}
+        className={`${cx(className, ViewTitleHeaderS.FilterButton)} filter-btn`}
         onClick={() => onOpenModal(MODAL_TYPES.FILTERS)}
         data-testid="question-filter-header"
       >
