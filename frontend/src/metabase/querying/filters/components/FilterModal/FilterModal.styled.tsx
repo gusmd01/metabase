@@ -5,6 +5,27 @@ import { Flex, Modal } from "metabase/ui";
 
 export const ModalHeader = styled(Modal.Header)`
   border-bottom: 1px solid var(--mb-color-border);
+
+  &.emotion-Modal-header {
+    background-color: #f9f9f9;
+    border-bottom: none;
+    padding: 20px 24px;
+
+    h2 {
+      font-weight: 500;
+      font-size: 20px;
+      color: #101223;
+    }
+  }
+
+  input {
+    border: 1px solid #d2d4da;
+    border-radius: 30px;
+  }
+
+  svg {
+    color: #9496a1;
+  }
 `;
 
 export const ModalBody = styled(Modal.Body)`

@@ -8,6 +8,8 @@ import ViewSection from "./ViewSection";
 export const ViewFooterRoot = styled(ViewSection)`
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 
 export const FooterButtonGroup = styled(ButtonGroup)`

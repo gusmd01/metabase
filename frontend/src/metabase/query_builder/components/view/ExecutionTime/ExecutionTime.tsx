@@ -23,7 +23,8 @@ export const ExecutionTime = ({ time }: Props) => {
       <Flex
         align="center"
         gap="xs"
-        fw="bold"
+        fw="500"
+        fz="12px"
         data-testid="execution-time"
         aria-label={label}
       >

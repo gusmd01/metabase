@@ -12,6 +12,7 @@ export const ViewSidebarAside = styled.aside<{
   overflow-y: auto;
   position: relative;
   width: 0;
+  margin-top: 15px;
 
   ${({ isOpen, side }) =>
     side === "left"

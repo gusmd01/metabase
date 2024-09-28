@@ -70,7 +70,7 @@ export const OptionIconContainer = styled.div<OptionIconContainerProps>`
   border-radius: 100%;
   border: 1px solid var(--mb-color-border);
   cursor: pointer;
-  padding: 0.875rem;
+  padding: 0.55rem;
 
   &:hover {
     color: var(--mb-color-brand);
@@ -84,8 +84,8 @@ export const OptionIconContainer = styled.div<OptionIconContainerProps>`
 `;
 
 export const OptionLabel = styled.h4`
-  color: var(--mb-color-text-medium);
-  font-weight: bold;
+  color: #101223;
+  font-weight: 500;
   font-size: 0.75rem;
   text-transform: uppercase;
   margin: 1rem 0 1rem 1.5rem;

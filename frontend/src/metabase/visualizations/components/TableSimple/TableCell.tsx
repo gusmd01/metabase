@@ -193,7 +193,7 @@ export function TableCell({
     >
       <CellContent
         isHighlighted={isID(column)}
-        className={TableS.cellData}
+        className={`${TableS.cellData}`}
         isClickable={isClickable}
         onClick={isClickable ? onClick : undefined}
         data-testid="cell-data"

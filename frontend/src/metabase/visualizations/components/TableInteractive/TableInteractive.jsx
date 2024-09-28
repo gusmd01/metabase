@@ -154,13 +154,13 @@ class TableInteractive extends Component {
 
     return (
       <Box
-        className={cx({
+        className={`${cx({
           [TableS.cellData]: hasChildren,
-        })}
+        })} table-cell-item`}
         data-testid={hasChildren ? "cell-data" : undefined}
         c={cellTheme.color}
         bg={cellTheme.background}
-        style={{ border: cellTheme.border }}
+        //style={{ border: cellTheme.border }}
         fz={cellTheme.fontSize}
       >
         {children}
@@ -1407,7 +1407,7 @@ function ColumnShortcut({ height, pageWidth, totalWidth, onClick }) {
       }}
     >
       <UIButton
-        variant="outline"
+        variant="filled"
         compact
         leftIcon={<Icon name="add" />}
         title={t`Add column`}

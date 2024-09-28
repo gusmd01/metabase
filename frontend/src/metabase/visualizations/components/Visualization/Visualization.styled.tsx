@@ -7,6 +7,21 @@ export const VisualizationRoot = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  box-shadow: none;
+
+  .test-TableInteractive-cellWrapper {
+    border-top-color: #e6e6e6;
+  }
+
+  .ReactVirtualized__Grid {
+    border-bottom: none;
+
+    .table-cell-item {
+      font-weight: 400;
+      font-size: 12px;
+      color: #101223;
+    }
+  }
 `;
 
 export const VisualizationHeader = styled.div`

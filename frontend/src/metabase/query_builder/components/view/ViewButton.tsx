@@ -11,7 +11,7 @@ type Props = {
 // NOTE: some of this is duplicated from NotebookCell.jsx
 const ViewButton = styled(Button)<Props>`
   background-color: ${({ active, color = getDefaultColor() }) =>
-    active ? color : alpha(color, 0.2)};
+    active ? color : "#F3F4F8"};
 
   color: ${({ active, color = getDefaultColor() }) =>
     active ? "var(--mb-color-text-white)" : color};
@@ -21,7 +21,7 @@ const ViewButton = styled(Button)<Props>`
 
   &:hover {
     background-color: ${({ active, color = getDefaultColor() }) =>
-      active ? alpha(color, 0.8) : alpha(color, 0.35)};
+      active ? alpha(color, 0.8) : alpha(color, 0.25)};
     color: ${({ active, color = getDefaultColor() }) =>
       active ? "var(--mb-color-text-white)" : color};
   }
