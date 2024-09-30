@@ -4,6 +4,16 @@ export const ObjectDetailsTable = styled.div`
   overflow-y: auto;
   flex: 1;
   padding: 2rem;
+
+  .label-item {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .value-item {
+    font-weight: 400;
+    font-size: 14px;
+  }
 `;
 
 type GridContainerProps = { cols?: number };
@@ -11,7 +21,7 @@ type GridContainerProps = { cols?: number };
 export const GridContainer = styled.div<GridContainerProps>`
   display: grid;
   grid-template-columns: repeat(${props => props.cols || 2}, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 2px;
 `;
 
 export interface GridItemProps {

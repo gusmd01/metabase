@@ -186,7 +186,7 @@ export function DetailsTable({
                   value={row[columnIndex] ?? t`Empty`}
                   isColumnName
                   settings={settings}
-                  className={cx(CS.textBold, CS.textSecondary)}
+                  className={`${cx(CS.textBold, CS.textSecondary)} label-item`}
                   onVisualizationClick={onVisualizationClick}
                   visualizationIsClickable={visualizationIsClickable}
                 />
@@ -197,12 +197,12 @@ export function DetailsTable({
                   value={columnValue}
                   isColumnName={false}
                   settings={settings}
-                  className={cx(
+                  className={`${cx(
                     CS.textBold,
                     CS.textPrimary,
                     CS.textSpaced,
                     CS.textWrap,
-                  )}
+                  )} value-item`}
                   onVisualizationClick={onVisualizationClick}
                   visualizationIsClickable={visualizationIsClickable}
                 />

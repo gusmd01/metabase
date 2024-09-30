@@ -22,7 +22,7 @@ interface ToggleIconProps {
 
 export const ToggleIcon = styled.div<ToggleIconProps>`
   display: flex;
-  padding: 4px 8px;
+  padding: 6px;
   cursor: pointer;
   background-color: ${props => (props.active ? color("brand") : "transparent")};
   color: ${props => (props.active ? "var(--mb-color-text-white)" : "inherit")};

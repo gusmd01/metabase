@@ -50,4 +50,9 @@ export const RootModal = styled(Modal)`
 export const PaginationFooter = styled(TableFooter)`
   margin-top: 0.5rem;
   text-align: right;
+
+  span {
+    font-weight: 500;
+    font-size: 12px;
+  }
 `;

@@ -44,7 +44,7 @@ export interface OptionIconContainerProps {
 export const OptionText = styled.div`
   margin-top: 0.5rem;
   color: var(--mb-color-text-medium);
-  font-weight: bold;
+  font-weight: 500;
   font-size: 0.75rem;
 `;
 

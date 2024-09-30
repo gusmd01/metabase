@@ -439,8 +439,8 @@ class Visualization extends PureComponent {
       hovered = null;
       style = {
         ...style,
-        opacity: 0.2,
-        filter: "grayscale()",
+        //opacity: 0.2,
+        //filter: "grayscale()",
         pointerEvents: "none",
       };
     }

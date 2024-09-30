@@ -22,6 +22,14 @@ export const VisualizationRoot = styled.div`
       color: #101223;
     }
   }
+
+  .CardVisualization {
+    .visx-group {
+      .visx-bar {
+        fill: #25caf8;
+      }
+    }
+  }
 `;
 
 export const VisualizationHeader = styled.div`
