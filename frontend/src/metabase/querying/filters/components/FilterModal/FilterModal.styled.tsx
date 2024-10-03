@@ -31,6 +31,12 @@ export const ModalHeader = styled(Modal.Header)`
 export const ModalBody = styled(Modal.Body)`
   height: calc(90vh - 10rem);
 
+  .emotion-Text-root,
+  .emotion-Button-label,
+  .emotion-Tabs-tabLabel,
+  .emotion-MultiSelect-defaultValueLabel {
+    font-weight: normal;
+  }
   ${breakpointMaxSmall} {
     height: calc(98vh - 10rem);
   }
@@ -38,4 +44,8 @@ export const ModalBody = styled(Modal.Body)`
 
 export const ModalFooter = styled(Flex)`
   border-top: 1px solid var(--mb-color-border);
+
+  .emotion-Button-root {
+    font-weight: normal;
+  }
 `;

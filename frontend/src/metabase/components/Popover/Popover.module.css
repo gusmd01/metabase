@@ -62,6 +62,7 @@
 
 :global(.tippy-box[data-theme~="popover"] .tippy-content) {
   padding: 0;
+  font-weight: normal;
 }
 
 /* remove the max-width in cases where the popover content needs to expand
@@ -91,6 +92,10 @@
  */
 .PopoverBodyMarginBottom {
   margin-bottom: 60px;
+}
+
+h4 {
+  font-weight: normal;
 }
 
 .PopoverBody .FormField {
