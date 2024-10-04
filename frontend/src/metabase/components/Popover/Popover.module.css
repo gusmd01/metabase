@@ -23,6 +23,16 @@
   overflow: auto;
 }
 
+:global(.tippy-content label) {
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+:global(.tippy-content input) {
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
 /* Global classes from tippy.js */
 :global(.tippy-box),
 :global(.tippy-content) {
