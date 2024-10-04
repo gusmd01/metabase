@@ -29,6 +29,7 @@ import {
   ChartSettingsFooterRoot,
   ChartSettingsListContainer,
   ChartSettingsMenu,
+  ChartSettingsMenuWrappoer,
   ChartSettingsPreview,
   ChartSettingsRoot,
   ChartSettingsVisualizationContainer,
@@ -385,15 +386,17 @@ class ChartSettings extends Component {
     // default layout with visualization
     return (
       <ChartSettingsRoot className={className}>
-        <ChartSettingsMenu data-testid="chartsettings-sidebar">
-          {showSectionPicker && sectionPicker}
-          <ChartSettingsListContainer className={CS.scrollShow}>
-            <ChartSettingsWidgetList
-              widgets={visibleWidgets}
-              extraWidgetProps={extraWidgetProps}
-            />
-          </ChartSettingsListContainer>
-        </ChartSettingsMenu>
+        <ChartSettingsMenuWrappoer className={"chart-setting-menu-wrapper"}>
+          <ChartSettingsMenu data-testid="chartsettings-sidebar">
+            {showSectionPicker && sectionPicker}
+            <ChartSettingsListContainer className={CS.scrollShow}>
+              <ChartSettingsWidgetList
+                widgets={visibleWidgets}
+                extraWidgetProps={extraWidgetProps}
+              />
+            </ChartSettingsListContainer>
+          </ChartSettingsMenu>
+        </ChartSettingsMenuWrappoer>
         {!noPreview && (
           <ChartSettingsPreview>
             <SectionWarnings warnings={this.state.warnings} size={20} />

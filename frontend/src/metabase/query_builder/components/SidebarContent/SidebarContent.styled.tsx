@@ -7,6 +7,7 @@ export const SidebarContentRoot = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  font-weight: normal;
 `;
 
 export const SidebarContentMain = styled.div`
@@ -22,7 +23,7 @@ export const FooterButton = styled(ViewButton)`
   border-radius: 99px;
   box-shadow: 0 2px 2px rgb(0 0 0 / 13%);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   width: calc(100% - 55px);
   padding: 8px;
 `;

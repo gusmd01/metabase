@@ -56,6 +56,20 @@ export const ChartSettingsMenu = styled.div`
   overflow-y: auto;
 `;
 
+export const ChartSettingsMenuWrappoer = styled.div`
+  &.chart-setting-menu-wrapper {
+    width: 100%;
+
+    button,
+    label,
+    input,
+    a {
+      font-weight: normal;
+      font-size: 0.85rem;
+    }
+  }
+`;
+
 export const ChartSettingsListContainer = styled.div`
   position: relative;
   padding: 1.5rem 0;
