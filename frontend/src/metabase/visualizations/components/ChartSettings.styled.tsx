@@ -68,6 +68,11 @@ export const ChartSettingsMenuWrappoer = styled.div`
       font-weight: normal;
       font-size: 0.85rem;
     }
+
+    h3 {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
   }
 `;
 
