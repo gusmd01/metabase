@@ -2,6 +2,14 @@
   white-space: pre-wrap;
 }
 
+:global(.tippy-content p) {
+  font-weight: normal;
+}
+
+:global(.tippy-content button) {
+  font-weight: normal;
+}
+
 :global(.tippy-box) {
   color: inherit;
 }

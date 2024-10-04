@@ -63,7 +63,8 @@ export const ChartSettingsMenuWrappoer = styled.div`
     button,
     label,
     input,
-    a {
+    a,
+    span {
       font-weight: normal;
       font-size: 0.85rem;
     }
