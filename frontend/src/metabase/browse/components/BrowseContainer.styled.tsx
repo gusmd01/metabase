@@ -17,7 +17,7 @@ export const BrowseContainer = styled.div`
 `;
 
 export const BrowseSection = styled(Flex)`
-  max-width: 64rem;
+  max-width: 100%;
   margin: 0 auto;
   width: 100%;
 `;
@@ -33,7 +33,6 @@ export const BrowseMain = styled.main`
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
-  padding: 0 2.5rem;
   padding-bottom: 2rem;
 `;
 
