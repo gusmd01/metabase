@@ -29,6 +29,99 @@ export const VisualizationRoot = styled.div`
         fill: #25caf8;
       }
     }
+
+    table {
+      background-color: var(--mb-color-bg-white);
+      table-layout: fixed;
+      border-collapse: unset;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      thead {
+        th {
+          border-top: 1px solid var(--mb-color-border);
+
+          &:first-of-type {
+            border-start-start-radius: 8px;
+            border-inline-start: 1px solid var(--mb-color-border);
+          }
+
+          &:last-child {
+            border-start-end-radius: 8px;
+            border-inline-end: 1px solid var(--mb-color-border);
+          }
+
+          font-weight: 500;
+          color: #161616;
+
+          button div {
+            font-weight: 500;
+            color: #161616;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          &:hover {
+            background-color: #0000000a;
+          }
+        }
+
+        td {
+          font-size: 12px;
+          color: #161616;
+          font-weight: normal;
+          border: none;
+          background-color: transparent;
+          border-top: 1px solid var(--mb-color-border);
+
+          &:first-of-type {
+            border-inline-start: 1px solid var(--mb-color-border);
+          }
+
+          &:last-child {
+            border-inline-end: 1px solid var(--mb-color-border);
+          }
+
+          &:hover {
+            a {
+              color: #161616 !important;
+            }
+          }
+
+          button {
+            svg:not(.Icon-check) {
+              color: #777986;
+            }
+          }
+
+          a {
+            h3 {
+              font-weight: 400;
+            }
+          }
+        }
+
+        tr:last-child {
+          td {
+            border-bottom: 1px solid var(--mb-color-border);
+
+            &:last-child {
+              border-end-end-radius: 8px;
+            }
+
+            &:first-of-type {
+              border-end-start-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    span {
+      font-weight: normal;
+    }
   }
 `;
 
