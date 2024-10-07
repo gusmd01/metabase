@@ -168,7 +168,7 @@ export const ParametersAndCardsContainer = styled.div<{
   }
 `;
 
-export const FIXED_WIDTH = "1048px";
+export const FIXED_WIDTH = "100%";
 export const FixedWidthContainer = styled.div<{
   isFixedWidth: boolean;
 }>`
