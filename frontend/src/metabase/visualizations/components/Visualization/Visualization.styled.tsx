@@ -24,12 +24,6 @@ export const VisualizationRoot = styled.div`
   }
 
   .CardVisualization {
-    .visx-group {
-      .visx-bar {
-        fill: #25caf8;
-      }
-    }
-
     table {
       background-color: var(--mb-color-bg-white);
       table-layout: fixed;
