@@ -17,16 +17,6 @@
 }
 
 [data-phokus-page="insights"] {
-  [data-element-id="EDIT_DASHBOARD"],
-  [data-element-id="DASHBOARD_SHARING"],
-  [data-element-id="REFRESH_WIDGET"],
-  [data-element-id="DASHBOARD_BOOKMARK"],
-  [data-element-id="DASHBOARD_HEADER_ACTION_DIVIDER"],
-  [data-element-id="DASHBOARD_INFO"],
-  [data-element-id="DASHBOARD_ACTION_MENU"] {
-    display: none;
-  }
-
   [data-testid="pinned-model-items"] {
     display: none;
   }
@@ -43,13 +33,13 @@
 }
 
 [data-phokus-page="dateSets"] {
-  [data-testid="collection-menu"] {
-    [data-testid="bookmark-button"] {
-      display: none;
-    }
-  }
-
-  label[for="upload-input"] {
+  [data-element-id="EDIT_DASHBOARD"],
+  [data-element-id="DASHBOARD_SHARING"],
+  [data-element-id="REFRESH_WIDGET"],
+  [data-element-id="DASHBOARD_BOOKMARK"],
+  [data-element-id="DASHBOARD_HEADER_ACTION_DIVIDER"],
+  [data-element-id="DASHBOARD_INFO"],
+  [data-element-id="DASHBOARD_ACTION_MENU"] {
     display: none;
   }
 }
