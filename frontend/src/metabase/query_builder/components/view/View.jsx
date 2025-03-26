@@ -6,6 +6,7 @@ import _ from "underscore";
 
 import { deletePermanently } from "metabase/archive/actions";
 import { ArchivedEntityBanner } from "metabase/archive/components/ArchivedEntityBanner";
+import PortalComponent from "metabase/components/CustomSelectionPortal/SelectionPortal";
 import ExplicitSize from "metabase/components/ExplicitSize";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 import Toaster from "metabase/components/Toaster";
@@ -464,6 +465,7 @@ class View extends Component {
           className={QueryBuilderS.QueryBuilder}
           data-testid="query-builder-root"
         >
+          <PortalComponent />
           {isHeaderVisible && this.renderHeader()}
 
           <QueryBuilderContentContainer>
