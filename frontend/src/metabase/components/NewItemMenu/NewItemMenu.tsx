@@ -77,18 +77,18 @@ const NewItemMenu = ({
       },
     );
 
-    if (hasNativeWrite) {
-      const collectionQuery = collectionId
-        ? `?collectionId=${collectionId}`
-        : "";
+    // if (hasNativeWrite) {
+    //   const collectionQuery = collectionId
+    //     ? `?collectionId=${collectionId}`
+    //     : "";
 
-      items.push({
-        title: t`Model`,
-        icon: "model",
-        link: `/model/new${collectionQuery}`,
-        onClose: onCloseNavbar,
-      });
-    }
+    //   items.push({
+    //     title: t`Model`,
+    //     icon: "model",
+    //     link: `/model/new${collectionQuery}`,
+    //     onClose: onCloseNavbar,
+    //   });
+    // }
 
     if (hasModels && hasDatabaseWithActionsEnabled && hasNativeWrite) {
       items.push({
