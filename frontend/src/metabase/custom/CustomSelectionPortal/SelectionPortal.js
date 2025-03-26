@@ -7,6 +7,10 @@ export const getEntity = pathname => {
     return "queryLab";
   }
 
+  if (pathname?.includes("dashboard")) {
+    return "dateSets";
+  }
+
   return "insights";
 };
 

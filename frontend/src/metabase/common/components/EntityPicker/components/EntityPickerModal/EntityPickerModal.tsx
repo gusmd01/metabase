@@ -6,7 +6,7 @@ import { t } from "ttag";
 import ErrorBoundary from "metabase/ErrorBoundary";
 import { useListRecentsQuery } from "metabase/api";
 import { BULK_ACTIONS_Z_INDEX } from "metabase/components/BulkActionBar";
-import { getEntity } from "metabase/components/CustomSelectionPortal/SelectionPortal";
+import { getEntity } from "metabase/custom/CustomSelectionPortal/SelectionPortal";
 import { useModalOpen } from "metabase/hooks/use-modal-open";
 import { Modal } from "metabase/ui";
 import type {

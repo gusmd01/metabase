@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { t } from "ttag";
 
 import {
-  isEditableCollection,
+  // isEditableCollection,
   isInstanceAnalyticsCollection,
   isRootTrashCollection,
 } from "metabase/collections/utils";
@@ -30,7 +30,8 @@ export const CollectionCaption = ({
   collection,
   onUpdateCollection,
 }: CollectionCaptionProps): JSX.Element => {
-  const isEditable = isEditableCollection(collection);
+  // const isEditable = isEditableCollection(collection);
+  const isEditable = false;
   const hasDescription = Boolean(collection.description);
 
   const handleChangeName = useCallback(

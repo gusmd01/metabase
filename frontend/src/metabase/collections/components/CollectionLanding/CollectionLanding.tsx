@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { replace } from "react-router-redux";
 
 import { useGetCollectionQuery } from "metabase/api";
+import PortalComponent from "metabase/custom/CustomSelectionPortal/SelectionPortal";
 import { useDispatch } from "metabase/lib/redux";
 import { isNotNull } from "metabase/lib/types";
 import { extractCollectionId } from "metabase/lib/urls";
@@ -50,6 +51,7 @@ const CollectionLanding = ({
   return (
     <>
       <CollectionContent collectionId={collectionId} />
+      <PortalComponent />
       {children}
     </>
   );
