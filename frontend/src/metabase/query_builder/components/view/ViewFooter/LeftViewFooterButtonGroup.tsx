@@ -31,7 +31,7 @@ export const LeftViewFooterButtonGroup = ({
           : () => onOpenChartType()
       }
     >
-      {t`Visualization`}
+      {t`Visualisation`}
     </ViewButton>
     <ViewButton
       active={isShowingChartSettingsSidebar}
