@@ -6,6 +6,7 @@ import _ from "underscore";
 
 import { deletePermanently } from "metabase/archive/actions";
 import { ArchivedEntityBanner } from "metabase/archive/components/ArchivedEntityBanner";
+import PortalComponent from "metabase/custom/CustomSelectionPortal/SelectionPortal";
 import {
   type NewDashCardOpts,
   type SetDashboardAttributesOpts,
@@ -403,6 +404,7 @@ function Dashboard(props: DashboardProps) {
 
         return (
           <DashboardStyled>
+            <PortalComponent />
             {dashboard.archived && (
               <ArchivedEntityBanner
                 name={dashboard.name}

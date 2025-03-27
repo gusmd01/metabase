@@ -51,6 +51,7 @@ const BookmarkToggle = forwardRef(function BookmarkToggle(
         ref={ref}
         isBookmarked={isBookmarked}
         onClick={handleClick}
+        data-testid="bookmark-button"
       >
         <BookmarkIcon
           name={iconName}

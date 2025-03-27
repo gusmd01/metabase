@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import cx from "classnames";
-import { t } from "ttag";
+// import { t } from "ttag";
 
 import { Button } from "metabase/ui";
 import * as Lib from "metabase-lib";
@@ -30,7 +30,8 @@ export function QuestionSummarizeWidget({
         ViewTitleHeaderS.SummarizeButton,
       )} summarize-btn`}
     >
-      {t`Summarize`}
+      {/* {t`Summarize`} */}
+      {`Summarise`}
     </Button>
   );
 }

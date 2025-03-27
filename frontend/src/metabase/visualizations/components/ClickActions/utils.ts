@@ -71,7 +71,8 @@ export const getSectionTitle = (
       return actions[0]?.sectionTitle ?? `Filter by this value`;
 
     case "sum":
-      return t`Summarize`;
+      // return t`Summarize`;
+      return t`Summarise`;
 
     case "auto-popover":
       return t`Automatic insights…`;

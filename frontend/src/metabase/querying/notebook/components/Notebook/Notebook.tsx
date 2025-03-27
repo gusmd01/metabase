@@ -84,7 +84,7 @@ export const Notebook = ({
             style={{ minWidth: 220 }}
             onClick={visualize}
           >
-            {t`Visualize`}
+            {t`Visualise`}
           </Button>
         )}
       </StyledContainer>

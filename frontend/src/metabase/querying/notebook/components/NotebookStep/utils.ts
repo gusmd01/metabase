@@ -65,7 +65,8 @@ const STEPS: Record<NotebookStepType, StepUIItem> = {
     StepHeader: NotebookStepHeader,
   },
   summarize: {
-    title: t`Summarize`,
+    // title: t`Summarize`,
+    title: t`Summarise`,
     icon: "sum",
     priority: 5,
     color: () => color("summarize"),

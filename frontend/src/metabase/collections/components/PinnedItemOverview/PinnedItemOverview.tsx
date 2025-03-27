@@ -200,7 +200,7 @@ function PinnedItemOverview({
                   : t`Start new explorations about ${collection.name} here`
               }
             />
-            <MainBoxContent>
+            <MainBoxContent data-testid="pinned-model-items">
               {modelItems.map(item => (
                 <div key={item.id} className={CS.relative}>
                   <PinnedItemSortDropTarget

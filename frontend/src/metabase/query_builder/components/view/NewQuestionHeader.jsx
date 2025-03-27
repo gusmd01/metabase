@@ -1,11 +1,16 @@
+import PropTypes from "prop-types";
 import { t } from "ttag";
 
 import ViewSection, { ViewHeading } from "./ViewSection";
 
-export default function NewQuestionHeader(props) {
+export default function NewQuestionHeader({ title, ...props }) {
   return (
     <ViewSection {...props}>
-      <ViewHeading>{t`Pick your starting data`}</ViewHeading>
+      <ViewHeading>{title || t`Pick your starting data`}</ViewHeading>
     </ViewSection>
   );
 }
+
+NewQuestionHeader.propTypes = {
+  title: PropTypes.string,
+};

@@ -1,0 +1,45 @@
+[data-phokus-page="queryLab"] {
+  [data-testid="app-bar"] {
+    display: none;
+  }
+
+  [data-testid="head-crumbs-container"] {
+    display: none;
+  }
+
+  [data-testid="qb-header-action-panel"] {
+    padding-right: 0;
+  }
+
+  button[data-testid="download-button"] {
+    display: none;
+  }
+}
+
+[data-phokus-page="insights"] {
+  [data-testid="pinned-model-items"] {
+    display: none;
+  }
+
+  [data-testid="collection-menu"] {
+    [data-testid="bookmark-button"] {
+      display: none;
+    }
+  }
+
+  label[for="upload-input"] {
+    display: none;
+  }
+}
+
+[data-phokus-page="dateSets"] {
+  [data-element-id="EDIT_DASHBOARD"],
+  [data-element-id="DASHBOARD_SHARING"],
+  [data-element-id="REFRESH_WIDGET"],
+  [data-element-id="DASHBOARD_BOOKMARK"],
+  [data-element-id="DASHBOARD_HEADER_ACTION_DIVIDER"],
+  [data-element-id="DASHBOARD_INFO"],
+  [data-element-id="DASHBOARD_ACTION_MENU"] {
+    display: none;
+  }
+}

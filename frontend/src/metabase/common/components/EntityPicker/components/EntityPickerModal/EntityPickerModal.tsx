@@ -1,10 +1,12 @@
 import { useWindowEvent } from "@mantine/hooks";
 import { useMemo, useState } from "react";
+import { useLocation } from "react-use";
 import { t } from "ttag";
 
 import ErrorBoundary from "metabase/ErrorBoundary";
 import { useListRecentsQuery } from "metabase/api";
 import { BULK_ACTIONS_Z_INDEX } from "metabase/components/BulkActionBar";
+import { getEntity } from "metabase/custom/CustomSelectionPortal/SelectionPortal";
 import { useModalOpen } from "metabase/hooks/use-modal-open";
 import { Modal } from "metabase/ui";
 import type {
@@ -97,6 +99,9 @@ export function EntityPickerModal<
   recentsContext = ["selections", "views"],
   dataClassName,
 }: EntityPickerModalProps<Model, Item>) {
+  const location = useLocation();
+  const pageName = getEntity(location?.pathname);
+
   const [searchQuery, setSearchQuery] = useState<string>("");
   const { data: recentItems, isLoading: isLoadingRecentItems } =
     useListRecentsQuery(
@@ -138,37 +143,42 @@ export function EntityPickerModal<
       : relevantModelRecents;
   }, [recentItems, tabModels, recentFilter]);
 
-  const tabs: EntityTab<Model | "recents">[] = useMemo(
-    () =>
-      hydratedOptions.hasRecents && filteredRecents.length > 0
-        ? [
-            {
-              model: "recents",
-              displayName: t`Recents`,
-              icon: "clock",
-              element: (
-                <RecentsTab
-                  isLoading={isLoadingRecentItems}
-                  recentItems={filteredRecents}
-                  onItemSelect={onItemSelect}
-                  selectedItem={selectedItem}
-                  dataClassName={dataClassName}
-                />
-              ),
-            },
-            ...passedTabs,
-          ]
-        : passedTabs,
-    [
-      selectedItem,
-      onItemSelect,
-      passedTabs,
-      isLoadingRecentItems,
-      hydratedOptions.hasRecents,
-      filteredRecents,
-      dataClassName,
-    ],
-  );
+  const tabs: EntityTab<Model | "recents">[] = useMemo(() => {
+    let allowedTabs = passedTabs;
+
+    if (pageName === "queryLab") {
+      allowedTabs = passedTabs?.filter(i => ["table"]?.includes(i?.model));
+    }
+
+    return hydratedOptions.hasRecents && filteredRecents.length > 0
+      ? [
+          {
+            model: "recents",
+            displayName: t`Recents`,
+            icon: "clock",
+            element: (
+              <RecentsTab
+                isLoading={isLoadingRecentItems}
+                recentItems={filteredRecents}
+                onItemSelect={onItemSelect}
+                selectedItem={selectedItem}
+                dataClassName={dataClassName}
+              />
+            ),
+          },
+          ...allowedTabs,
+        ]
+      : allowedTabs;
+  }, [
+    selectedItem,
+    onItemSelect,
+    passedTabs,
+    isLoadingRecentItems,
+    hydratedOptions.hasRecents,
+    filteredRecents,
+    dataClassName,
+    pageName,
+  ]);
 
   const hasTabs = tabs.length > 1 || searchQuery;
 

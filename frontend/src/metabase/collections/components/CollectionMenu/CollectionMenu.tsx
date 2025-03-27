@@ -21,10 +21,10 @@ export interface CollectionMenuProps {
 
 export const CollectionMenu = ({
   collection,
-  isAdmin,
-  isPersonalCollectionChild,
-  onUpdateCollection,
-}: CollectionMenuProps): JSX.Element | null => {
+}: // isAdmin,
+// isPersonalCollectionChild,
+// onUpdateCollection,
+CollectionMenuProps): JSX.Element | null => {
   // only get the count of items in the collection if we need it
   const maybeCollectionItemCount =
     useListCollectionItemsQuery(
@@ -49,22 +49,22 @@ export const CollectionMenu = ({
   const canMove =
     !isRoot && !isPersonal && canWrite && !isInstanceAnalyticsCustom;
 
-  if (isAdmin && !isRoot && canWrite) {
-    items.push(
-      ...PLUGIN_COLLECTIONS.getAuthorityLevelMenuItems(
-        collection,
-        onUpdateCollection,
-      ),
-    );
-  }
+  // if (isAdmin && !isRoot && canWrite) {
+  //   items.push(
+  //     ...PLUGIN_COLLECTIONS.getAuthorityLevelMenuItems(
+  //       collection,
+  //       onUpdateCollection,
+  //     ),
+  //   );
+  // }
 
-  if (isAdmin && !isPersonal && !isPersonalCollectionChild) {
-    items.push({
-      title: t`Edit permissions`,
-      icon: "lock",
-      link: `${url}/permissions`,
-    });
-  }
+  // if (isAdmin && !isPersonal && !isPersonalCollectionChild) {
+  //   items.push({
+  //     title: t`Edit permissions`,
+  //     icon: "lock",
+  //     link: `${url}/permissions`,
+  //   });
+  // }
 
   if (canMove) {
     items.push({
@@ -84,13 +84,13 @@ export const CollectionMenu = ({
     ),
   );
 
-  if (canMove) {
-    items.push({
-      title: t`Move to trash`,
-      icon: "trash",
-      link: `${url}/archive`,
-    });
-  }
+  // if (canMove) {
+  //   items.push({
+  //     title: t`Move to trash`,
+  //     icon: "trash",
+  //     link: `${url}/archive`,
+  //   });
+  // }
 
   if (items.length === 0) {
     return null;

@@ -11,6 +11,7 @@ import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 import Toaster from "metabase/components/Toaster";
 import CS from "metabase/css/core/index.css";
 import QueryBuilderS from "metabase/css/query_builder.module.css";
+import PortalComponent from "metabase/custom/CustomSelectionPortal/SelectionPortal";
 import Bookmarks from "metabase/entities/bookmarks";
 import Questions from "metabase/entities/questions";
 import {
@@ -266,6 +267,7 @@ class View extends Component {
             <NewQuestionHeader
               className={`${CS.spread} new_view_header`}
               style={style}
+              title={"Build Your Query"}
             />
           )}
         </Transition>
@@ -464,6 +466,7 @@ class View extends Component {
           className={QueryBuilderS.QueryBuilder}
           data-testid="query-builder-root"
         >
+          <PortalComponent />
           {isHeaderVisible && this.renderHeader()}
 
           <QueryBuilderContentContainer>
