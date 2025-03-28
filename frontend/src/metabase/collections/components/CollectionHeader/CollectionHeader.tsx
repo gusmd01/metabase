@@ -13,7 +13,7 @@ import { CollectionCaption } from "./CollectionCaption";
 import { HeaderActions, HeaderRoot } from "./CollectionHeader.styled";
 import { CollectionPermissions } from "./CollectionPermissions";
 import CollectionTimeline from "./CollectionTimeline";
-import { CollectionUpload } from "./CollectionUpload";
+// import { CollectionUpload } from "./CollectionUpload";
 
 export interface CollectionHeaderProps {
   collection: Collection;
@@ -36,13 +36,13 @@ const CollectionHeader = ({
   onUpdateCollection,
   onCreateBookmark,
   onDeleteBookmark,
-  saveFile,
-  canUpload,
-  uploadsEnabled,
-}: CollectionHeaderProps): JSX.Element => {
+}: // saveFile,
+// canUpload,
+// uploadsEnabled,
+CollectionHeaderProps): JSX.Element => {
   const isTrash = isTrashedCollection(collection);
-  const showUploadButton =
-    collection.can_write && (canUpload || !uploadsEnabled);
+  // const showUploadButton =
+  //   collection.can_write && (canUpload || !uploadsEnabled);
   const isInstanceAnalytics = isInstanceAnalyticsCollection(collection);
 
   return (
@@ -53,14 +53,14 @@ const CollectionHeader = ({
       />
       {!isTrash && (
         <HeaderActions data-testid="collection-menu">
-          {showUploadButton && (
+          {/* {showUploadButton && (
             <CollectionUpload
               collection={collection}
               uploadsEnabled={uploadsEnabled}
               isAdmin={isAdmin}
               saveFile={saveFile}
             />
-          )}
+          )} */}
           {!isInstanceAnalytics && (
             <CollectionTimeline collection={collection} />
           )}
